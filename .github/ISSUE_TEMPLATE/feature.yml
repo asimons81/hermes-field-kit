@@ -1,0 +1,36 @@
+name: Repository improvement
+description: Propose documentation, tooling, schema, governance, or catalog improvements.
+title: "[Proposal]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete problem should the repository solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration
+      description: Explain effects on existing catalogs, schemas, installs, or contributors.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is not a new-skill proposal.
+          required: true
+        - label: I searched existing issues and pull requests.
+          required: true
