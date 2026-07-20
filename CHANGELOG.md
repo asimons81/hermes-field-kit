@@ -15,8 +15,15 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 - Empty machine-readable catalog and JSON schemas
 - Nonfunctional skill authoring template
 - Dependency-free validation script
-- GitHub issue forms, pull-request template, CODEOWNERS, and CI
+- Validator contract tests covering valid and invalid repositories
+- GitHub issue forms, pull-request template, CODEOWNERS, Dependabot, and CI
+
+### Changed
+
+- Published skills now live directly under `skills/<skill-name>/` for Hermes tap discovery
+- Category organization is metadata rather than a physical directory layer
+- CI actions are pinned to immutable commit SHAs with read-only permissions and bounded execution
 
 ### Skills
 
-- None. The repository is intentionally skill-free during foundation review.
+- None. The repository remains intentionally skill-free during hardening.
