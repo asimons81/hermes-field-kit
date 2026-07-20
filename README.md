@@ -9,9 +9,9 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Foundation phase. There are no published skills yet.**
+**The first field-tested skill is now available.**
 
-The repository contains the specification, contribution process, validation tooling, validator self-tests, governance, and a nonfunctional authoring template. The first skill will be added only after it has been sanitized, documented, tested, and reviewed as a real daily-driver workflow.
+`x-analytics-import` provides a private-by-default workflow for validating, normalizing, importing, and comparing X Analytics CSV exports. The repository still applies the same admission rule to every future skill.
 
 ## The admission rule
 
@@ -50,7 +50,12 @@ docs/                      Installation, design, testing, and release policy
 .github/                   Contribution forms, dependency updates, and CI
 ```
 
-The `skills/` directory is intentionally empty except for its explanatory README.
+The `skills/` directory contains tap-discoverable published skills and its explanatory README.
+
+
+## Published skills
+
+- [`x-analytics-import`](skills/x-analytics-import/README.md): validate, normalize, import, and compare X Analytics CSV exports with idempotent private local snapshots.
 
 ## Design principles
 
@@ -66,9 +71,9 @@ Read [Design Principles](docs/design-principles.md) for the reasoning behind the
 
 ## Installing skills
 
-There is nothing to install yet. When the first skill ships, the repository can be added as a Hermes tap, or an individual `skills/<skill-name>/` directory can be copied into the user's Hermes skills directory.
+The repository can be added as a Hermes tap, or `skills/x-analytics-import/` can be copied into the user's Hermes skills directory. Review the skill README and scripts before installation.
 
-See [Installation](docs/installation.md) for the planned workflow and platform paths.
+See [Installation](docs/installation.md) for the installation workflow and platform paths.
 
 ## Validation
 

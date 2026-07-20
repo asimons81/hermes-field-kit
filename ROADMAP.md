@@ -16,11 +16,11 @@ This roadmap describes direction, not a promise of dates.
 
 ## First release candidate
 
-- [ ] Select one proven daily-driver skill
-- [ ] Remove personal data and environment-specific assumptions
-- [ ] Add realistic examples and behavior tests
+- [x] Select one proven daily-driver skill
+- [x] Remove personal data and environment-specific assumptions
+- [x] Add realistic examples and behavior tests
 - [ ] Validate installation from the tap in a fresh Hermes environment
-- [ ] Publish the first catalog entry
+- [x] Add the first catalog entry
 - [ ] Cut the first tagged release
 
 ## Later
