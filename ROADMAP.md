@@ -7,17 +7,19 @@ This roadmap describes direction, not a promise of dates.
 - [x] Define the admission rule
 - [x] Establish governance and contribution policy
 - [x] Define the Hermes-compatible skill contract
+- [x] Align the repository layout with Hermes tap discovery
 - [x] Add catalog and test-case schemas
 - [x] Add dependency-free validation
-- [x] Add continuous integration
-- [ ] Review and merge the repository foundation
+- [x] Add validator rejection tests
+- [x] Add hardened continuous integration
+- [ ] Enable and verify the `main` repository ruleset and native security controls
 
 ## First release candidate
 
 - [ ] Select one proven daily-driver skill
 - [ ] Remove personal data and environment-specific assumptions
 - [ ] Add realistic examples and behavior tests
-- [ ] Validate installation on a fresh Hermes environment
+- [ ] Validate installation from the tap in a fresh Hermes environment
 - [ ] Publish the first catalog entry
 - [ ] Cut the first tagged release
 
