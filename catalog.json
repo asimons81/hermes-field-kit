@@ -13,6 +13,19 @@
         "windows"
       ],
       "status": "stable"
+    },
+    {
+      "name": "x-post-writer",
+      "category": "content",
+      "path": "skills/x-post-writer",
+      "version": "1.0.0",
+      "description": "Use when drafting, rewriting, or repurposing short-form X content, including single posts, quote posts, replies, threads, launches, and personal stories, with source fidelity and claim verification built in.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
     }
   ]
 }

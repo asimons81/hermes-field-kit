@@ -19,6 +19,8 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 - GitHub issue forms, pull-request template, CODEOWNERS, Dependabot, and CI
 - `x-analytics-import` 1.0.0, the first published field-tested skill
 - Deterministic X Analytics importer, synthetic tests, examples, and privacy guidance
+- `x-post-writer` 1.0.0, a source-locked short-form X writing workflow
+- Generic format routing, claim verification, voice customization, and anti-fabrication tests
 
 ### Changed
 
@@ -29,3 +31,4 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 ### Skills
 
 - `x-analytics-import` 1.0.0: first baseline, recurring incremental imports, matched snapshot comparison, robust statistics, and privacy-safe reporting.
+- `x-post-writer` 1.0.0: single-post default, quote posts, replies, explicit threads, source locking, unsupported-claim blocking, and configurable voice guidance.

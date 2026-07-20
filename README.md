@@ -9,9 +9,9 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**The first field-tested skill is now available.**
+**Two field-tested skills are now available.**
 
-`x-analytics-import` provides a private-by-default workflow for validating, normalizing, importing, and comparing X Analytics CSV exports. The repository still applies the same admission rule to every future skill.
+The catalog now includes `x-analytics-import` for private analytics workflows and `x-post-writer` for source-locked short-form X writing. The repository applies the same admission rule to every future skill.
 
 ## The admission rule
 
@@ -56,6 +56,7 @@ The `skills/` directory contains tap-discoverable published skills and its expla
 ## Published skills
 
 - [`x-analytics-import`](skills/x-analytics-import/README.md): validate, normalize, import, and compare X Analytics CSV exports with idempotent private local snapshots.
+- [`x-post-writer`](skills/x-post-writer/README.md): draft and rewrite short-form X content with source locking, claim verification, format routing, and no invented experience.
 
 ## Design principles
 
@@ -71,7 +72,7 @@ Read [Design Principles](docs/design-principles.md) for the reasoning behind the
 
 ## Installing skills
 
-The repository can be added as a Hermes tap, or `skills/x-analytics-import/` can be copied into the user's Hermes skills directory. Review the skill README and scripts before installation.
+The repository can be added as a Hermes tap, or any `skills/<skill-name>/` directory can be copied into the user's Hermes skills directory. Review each skill README and scripts before installation.
 
 See [Installation](docs/installation.md) for the installation workflow and platform paths.
 
