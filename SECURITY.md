@@ -15,7 +15,7 @@ Do not open a public issue for:
 - A validation bypass that could expose users
 - A skill that performs consequential actions without adequate boundaries
 
-Use GitHub's private vulnerability reporting feature when available. If it is not available, contact the maintainer privately through the contact method on the maintainer's GitHub profile.
+Use GitHub's private vulnerability reporting feature, which is enabled for this repository. If you cannot use it, contact the maintainer privately through the contact method on the maintainer's GitHub profile.
 
 Include:
 
