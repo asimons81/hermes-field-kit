@@ -7,17 +7,18 @@ license: Apache-2.0
 platforms: [platform-agnostic]
 metadata:
   hermes:
+    category: replace-with-category
     tags: [replace-me]
     related_skills: []
 ---
 
 # Replace with Skill Title
 
-> TEMPLATE ONLY. Replace every placeholder before moving this directory under `skills/`.
+> TEMPLATE ONLY. Replace every placeholder before moving this directory to `skills/<skill-name>/`.
 
 ## Overview
 
-Describe the recurring real-world task and the process discipline this skill adds.
+Describe the recurring task and the process discipline this skill adds.
 
 ## When to Use
 
@@ -35,7 +36,7 @@ Do not use this skill when:
 
 ## Common Pitfalls
 
-1. **REPLACE_WITH_A_FAILURE MODE.** Explain the correction.
+1. **REPLACE_WITH_A_FAILURE_MODE.** Explain the correction.
 
 ## Verification Checklist
 
