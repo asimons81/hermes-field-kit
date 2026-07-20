@@ -11,7 +11,7 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 **Foundation phase. There are no published skills yet.**
 
-The repository currently contains the specification, contribution process, validation tooling, governance, and a nonfunctional authoring template. The first skill will be added only after it has been sanitized, documented, tested, and reviewed as a real daily-driver workflow.
+The repository contains the specification, contribution process, validation tooling, validator self-tests, governance, and a nonfunctional authoring template. The first skill will be added only after it has been sanitized, documented, tested, and reviewed as a real daily-driver workflow.
 
 ## The admission rule
 
@@ -26,6 +26,7 @@ Generated filler, speculative prompts, thin wrappers, and untested skill bundles
 ## What every published skill must provide
 
 - A Hermes-compatible `SKILL.md`
+- Direct tap discovery under `skills/<skill-name>/`
 - Clear triggers and counter-triggers
 - Sanitized examples from realistic workflows
 - Behavior-oriented test cases
@@ -39,13 +40,14 @@ See the [skill specification](docs/skill-specification.md) for the complete cont
 ## Repository map
 
 ```text
-skills/                    Published skills, grouped by category
+skills/<skill-name>/       Published tap-discoverable skills
+catalog.json               Machine-readable index and category metadata
 templates/skill-template/  Nonfunctional authoring scaffold
 schemas/                   Machine-readable catalog and test schemas
 scripts/validate.py         Dependency-free repository validator
+tests/                     Validator contract tests
 docs/                      Installation, design, testing, and release policy
-.github/                   Contribution forms, pull-request policy, and CI
-catalog.json               Machine-readable index of published skills
+.github/                   Contribution forms, dependency updates, and CI
 ```
 
 The `skills/` directory is intentionally empty except for its explanatory README.
@@ -56,26 +58,34 @@ The `skills/` directory is intentionally empty except for its explanatory README
 - **Trust over volume.**
 - **Process predictability over ornamental prose.**
 - **Progressive disclosure over giant always-loaded instructions.**
-- **Reproducible behavior over promises of virality or guaranteed outcomes.**
+- **Reproducible behavior over promises of guaranteed outcomes.**
 - **Safe defaults over environment-specific shortcuts.**
+- **Tap compatibility over aesthetically tidy but undiscoverable nesting.**
 
 Read [Design Principles](docs/design-principles.md) for the reasoning behind these rules.
 
 ## Installing skills
 
-There is nothing to install yet. When the first skill ships, each catalog entry will point to a self-contained directory that can be copied or linked into the user's Hermes skills directory.
+There is nothing to install yet. When the first skill ships, the repository can be added as a Hermes tap, or an individual `skills/<skill-name>/` directory can be copied into the user's Hermes skills directory.
 
 See [Installation](docs/installation.md) for the planned workflow and platform paths.
+
+## Validation
+
+```bash
+python scripts/validate.py
+python -m unittest discover -s tests -v
+```
+
+The validator checks tap layout, catalog agreement, frontmatter, behavior tests, supporting paths, JSON validity, and common secret patterns. Its own tests prove both acceptance and rejection behavior.
 
 ## Contributing
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md). New skill proposals use the dedicated GitHub issue form and must include evidence of real use without exposing private information.
 
-Repository policy and specification changes are welcome before the first skill lands.
-
 ## Versioning and releases
 
-The repository and catalog use Semantic Versioning. Individual skills also carry their own SemVer version in `SKILL.md`. No release tag will be created solely for this scaffold.
+The repository and catalog use Semantic Versioning. Individual skills carry their own SemVer version in `SKILL.md`. No release tag will be created solely for the scaffold.
 
 See [Release Process](docs/release-process.md).
 
