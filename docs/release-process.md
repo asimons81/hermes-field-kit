@@ -2,38 +2,33 @@
 
 ## Version model
 
-Hermes Field Kit uses two version layers:
-
-- **Repository release version:** the catalog, schemas, documentation, and bundled set of skills
-- **Skill version:** the independent SemVer value in each skill's `SKILL.md`
-
-A repository release may contain unchanged skills, and a skill version may advance as part of a repository release.
+Hermes Field Kit uses repository release versions and independent skill versions.
 
 ## Before the first release
 
-The foundation scaffold is not itself a tagged release. The first release requires at least one admitted, tested, cataloged skill.
+The foundation is not a tagged release. The first release requires at least one admitted, tested, cataloged, tap-discoverable skill.
 
 ## Release checklist
 
-1. Confirm `main` is green and releasable.
+1. Confirm `main` is protected and green.
 2. Run `python scripts/validate.py` from a clean checkout.
-3. Verify every changed skill's frontmatter version increased correctly.
-4. Verify catalog metadata matches source.
-5. Review examples and fixtures for private data.
-6. Update `CHANGELOG.md`.
-7. Confirm installation in a fresh Hermes environment.
-8. Create an annotated SemVer tag.
-9. Publish release notes describing repository and per-skill changes.
-10. Verify the tag and release point to the intended commit.
+3. Run `python -m unittest discover -s tests -v`.
+4. Verify changed skill versions.
+5. Verify catalog metadata matches source.
+6. Review examples and fixtures for private data.
+7. Confirm the repository tap indexes the skill from `skills/<name>/SKILL.md`.
+8. Install and evaluate the skill in a fresh Hermes environment.
+9. Update `CHANGELOG.md`.
+10. Create and verify an annotated SemVer tag and release notes.
 
 ## Compatibility
 
-Release notes must identify the Hermes Agent version used for validation. Compatibility claims must be based on testing, not assumption.
+Release notes identify the Hermes Agent version used for tap indexing and runtime validation. Compatibility claims must be tested.
 
 ## Deprecation
 
-A deprecated skill remains cataloged with `status: deprecated` for at least one repository release when practical. Its README must identify the replacement or explain why no replacement exists.
+A deprecated skill remains cataloged with `status: deprecated` for at least one repository release when practical.
 
 ## Emergency fixes
 
-Credential exposure or unsafe behavior may be fixed outside the normal cadence. Revoke exposed credentials before repository cleanup and describe security-sensitive details privately.
+Credential exposure or unsafe behavior may be fixed outside the normal cadence. Revoke exposed credentials before repository cleanup.
