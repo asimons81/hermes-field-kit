@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "replace-positive-trigger",
+      "type": "positive-trigger",
+      "prompt": "REPLACE_WITH_A_REALISTIC_PROMPT",
+      "expect": [
+        "REPLACE_WITH_OBSERVABLE_EXPECTED_BEHAVIOR"
+      ],
+      "reject": [
+        "REPLACE_WITH_PROHIBITED_BEHAVIOR"
+      ],
+      "notes": "TEMPLATE ONLY. Replace before submission."
+    }
+  ]
+}

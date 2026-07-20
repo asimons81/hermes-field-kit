@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/asimons81/hermes-field-kit/security
+    about: Report vulnerabilities or private-data exposure without opening a public issue.
+  - name: Hermes Agent issues
+    url: https://github.com/NousResearch/hermes-agent/issues
+    about: Report defects in Hermes Agent itself to the upstream project.

@@ -1,0 +1,69 @@
+name: Skill proposal
+description: Propose a field-tested skill before implementation.
+title: "[Skill]: "
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed skill name
+      placeholder: lowercase-kebab-case
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Recurring task
+      description: What real task does this solve, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: Evidence of real use
+      description: Describe how often and in what workflow it has been used. Do not attach private data.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Behavioral change
+      description: What useful discipline does the skill add beyond default agent behavior?
+    validations:
+      required: true
+  - type: textarea
+    id: triggers
+    attributes:
+      label: Positive and negative triggers
+      description: State when the skill should and should not load.
+    validations:
+      required: true
+  - type: textarea
+    id: public
+    attributes:
+      label: Public/private boundary
+      description: What personal configuration, credentials, analytics, or unpublished strategy must be removed or converted to placeholders?
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Tools, platforms, and dependencies
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Known limitations and risks
+    validations:
+      required: true
+  - type: checkboxes
+    id: admission
+    attributes:
+      label: Admission rule
+      options:
+        - label: The skill solves a real task.
+          required: true
+        - label: The skill has been used in an actual workflow.
+          required: true
+        - label: I can document it well enough for another person to reproduce the intended behavior.
+          required: true
+        - label: The proposal contains no credentials or private data.
+          required: true
