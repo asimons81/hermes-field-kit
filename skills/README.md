@@ -1,11 +1,11 @@
 # Published skills
 
-This directory is intentionally empty during repository foundation review.
+This directory is intentionally empty during repository hardening.
 
-Published skills will use:
+Hermes tap discovery expects each published skill directly beneath `skills/`:
 
 ```text
-skills/<category>/<skill-name>/
+skills/<skill-name>/
 ├── SKILL.md
 ├── README.md
 ├── examples/
@@ -13,4 +13,6 @@ skills/<category>/<skill-name>/
     └── cases.json
 ```
 
-Do not add a skill directly without first opening a **Skill proposal** issue and satisfying the admission rule in the root README.
+Do not insert category folders. Categories belong in `metadata.hermes.category` and `catalog.json`.
+
+Do not add a skill without a **Skill proposal** issue and the admission evidence required by the root README.
