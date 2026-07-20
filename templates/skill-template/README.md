@@ -2,10 +2,11 @@
 
 This directory is a **nonfunctional authoring scaffold**, not a published skill.
 
-Copy it to `skills/<category>/<real-skill-name>/`, replace every placeholder, add real examples and tests, then run:
+Copy it directly to `skills/<real-skill-name>/`, replace every placeholder, add real examples and tests, then run:
 
 ```bash
 python scripts/validate.py
+python -m unittest discover -s tests -v
 ```
 
-A copied template is not eligible for review until it satisfies the admission rule and the complete skill specification.
+Do not place the copied skill inside a category directory. Category belongs in frontmatter and the catalog.
