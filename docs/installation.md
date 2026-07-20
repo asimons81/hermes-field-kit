@@ -1,49 +1,49 @@
 # Installation
 
-There are no published skills yet. This document defines the installation workflow that will apply when the catalog is populated.
+There are no published skills yet. This document defines the workflow that applies when the catalog is populated.
 
-## User-local skill location
+## Install as a Hermes tap
 
-Hermes Agent discovers user-local skills under:
+The repository is structured so every published skill is an immediate child of `skills/`:
+
+```text
+skills/<skill-name>/SKILL.md
+```
+
+Add the repository using the Hermes tap command supported by your installed Hermes version, then install the selected skill through Hermes. Review the repository and each skill before installation.
+
+## Install one skill manually
+
+Hermes discovers user-local skills under:
 
 ```text
 ~/.hermes/skills/<optional-category>/<skill-name>/SKILL.md
 ```
 
-On Windows, `~` resolves to the current user's home directory.
+From a clone, copy a selected tap skill into your local tree.
 
-## Install one skill
-
-From a clone of this repository, copy or link the selected skill directory into the Hermes user-local skills tree.
-
-Example on Linux or macOS:
+Linux or macOS:
 
 ```bash
-mkdir -p ~/.hermes/skills/<category>
-cp -R skills/<category>/<skill-name> ~/.hermes/skills/<category>/
+mkdir -p ~/.hermes/skills
+cp -R skills/<skill-name> ~/.hermes/skills/
 ```
 
-Example on PowerShell:
+PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.hermes\skills\<category>" | Out-Null
-Copy-Item -Recurse "skills\<category>\<skill-name>" "$HOME\.hermes\skills\<category>\"
+New-Item -ItemType Directory -Force "$HOME\.hermes\skills" | Out-Null
+Copy-Item -Recurse "skills\<skill-name>" "$HOME\.hermes\skills\"
 ```
-
-Review every file before installation, especially scripts, templates, and tool requirements.
 
 ## Activate
 
 Start a new Hermes session after installation. Skill discovery may be cached for the lifetime of an existing session.
 
-## Update
+## Update and remove
 
-Pull the repository, review the skill's version and changes, then replace the installed directory. Do not overwrite private overlays without reviewing the diff.
-
-## Remove
-
-Delete the installed skill directory and start a new Hermes session.
+Review version changes before replacing an installed directory. To remove a skill, delete its installed directory and start a new Hermes session.
 
 ## Safety
 
-Installation does not grant authorization for consequential actions. Review each skill's requirements, tool boundaries, and safety notes before use.
+Installation does not grant authorization for consequential actions. Review tool requirements, scripts, and approval boundaries before use.
