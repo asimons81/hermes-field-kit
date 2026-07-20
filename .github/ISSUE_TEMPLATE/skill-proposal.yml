@@ -1,7 +1,6 @@
 name: Skill proposal
 description: Propose a field-tested skill before implementation.
 title: "[Skill]: "
-labels: ["skill-proposal"]
 body:
   - type: input
     id: name
