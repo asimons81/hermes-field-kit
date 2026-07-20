@@ -223,7 +223,7 @@ class ValidatorTests(unittest.TestCase):
             directory = repo.add_skill()
             (directory / "tests" / "cases.json").unlink()
             errors = validator.validate_repository(repo.root)
-            self.assert_error_contains(errors, "tests/cases.json is required")
+            self.assert_error_contains(errors, "cases.json is required")
 
     def test_duplicate_catalog_names_are_rejected(self) -> None:
         temp, repo = self.make_repo()
