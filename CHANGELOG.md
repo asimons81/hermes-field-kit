@@ -17,6 +17,8 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 - Dependency-free validation script
 - Validator contract tests covering valid and invalid repositories
 - GitHub issue forms, pull-request template, CODEOWNERS, Dependabot, and CI
+- `x-analytics-import` 1.0.0, the first published field-tested skill
+- Deterministic X Analytics importer, synthetic tests, examples, and privacy guidance
 
 ### Changed
 
@@ -26,4 +28,4 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ### Skills
 
-- None. The repository remains intentionally skill-free during hardening.
+- `x-analytics-import` 1.0.0: first baseline, recurring incremental imports, matched snapshot comparison, robust statistics, and privacy-safe reporting.

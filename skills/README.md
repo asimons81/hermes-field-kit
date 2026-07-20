@@ -1,8 +1,6 @@
 # Published skills
 
-This directory is intentionally empty during repository hardening.
-
-Hermes tap discovery expects each published skill directly beneath `skills/`:
+Hermes tap discovery expects every skill directly beneath `skills/`:
 
 ```text
 skills/<skill-name>/
@@ -15,4 +13,10 @@ skills/<skill-name>/
 
 Do not insert category folders. Categories belong in `metadata.hermes.category` and `catalog.json`.
 
-Do not add a skill without a **Skill proposal** issue and the admission evidence required by the root README.
+## Available
+
+### x-analytics-import
+
+A private-by-default workflow for validating, normalizing, importing, and comparing X Analytics CSV exports. It includes an executable standard-library importer, synthetic regression fixtures, baseline and recurring-run recipes, robust statistics, idempotent manifests, and privacy guards.
+
+Do not add a skill without the admission evidence required by the root README.

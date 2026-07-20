@@ -1,4 +1,18 @@
 {
   "schema_version": "1.0",
-  "skills": []
+  "skills": [
+    {
+      "name": "x-analytics-import",
+      "category": "data-analysis",
+      "path": "skills/x-analytics-import",
+      "version": "1.0.0",
+      "description": "Use when X Analytics CSV exports must be inspected, validated, normalized, imported, or compared through a repeatable private-by-default workflow.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    }
+  ]
 }

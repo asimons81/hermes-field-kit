@@ -1,6 +1,6 @@
 # Installation
 
-There are no published skills yet. This document defines the workflow that applies when the catalog is populated.
+Published skills can be installed through a Hermes tap or copied manually from this repository. Review each skill before installation.
 
 ## Install as a Hermes tap
 
@@ -32,8 +32,9 @@ cp -R skills/<skill-name> ~/.hermes/skills/
 PowerShell:
 
 ```powershell
-New-Item -ItemType Directory -Force "$HOME\.hermes\skills" | Out-Null
-Copy-Item -Recurse "skills\<skill-name>" "$HOME\.hermes\skills\"
+$destination = Join-Path $env:LOCALAPPDATA "hermes\skills"
+New-Item -ItemType Directory -Force $destination | Out-Null
+Copy-Item -Recurse "skills\<skill-name>" $destination
 ```
 
 ## Activate
