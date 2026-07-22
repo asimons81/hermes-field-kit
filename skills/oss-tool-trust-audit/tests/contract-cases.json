@@ -1,0 +1,34 @@
+{
+  "positive_triggers": [
+    "Is this viral GitHub tool safe?",
+    "Audit this npm package before I install it.",
+    "Does this CLI phone home?",
+    "Should we use, fork, build, or skip this tool?"
+  ],
+  "negative_triggers": [
+    "The user wants a vulnerability exploit.",
+    "The task is a routine code review of software already trusted and adopted.",
+    "No exact project, package, version, or source can be identified."
+  ],
+  "verdicts": [
+    "USE",
+    "USE WITH CONTROLS",
+    "ISOLATE AND TEST",
+    "DO NOT USE",
+    "INSUFFICIENT EVIDENCE"
+  ],
+  "report_headings": [
+    "OSS Tool Trust Audit",
+    "Verdict",
+    "Subject and Version",
+    "Legitimacy",
+    "Provenance and Maintainers",
+    "Telemetry and Network",
+    "Dangerous Capabilities",
+    "Dependencies and Supply Chain",
+    "Claim Verification",
+    "Adoption Fit",
+    "Unknowns",
+    "Recommended Controls"
+  ]
+}

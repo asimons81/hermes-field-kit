@@ -9,9 +9,15 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Two field-tested skills are now available.**
+**Thirteen field-tested skills are now available.**
 
-The catalog now includes `x-analytics-import` for private analytics workflows and `x-post-writer` for source-locked short-form X writing. The repository applies the same admission rule to every future skill.
+The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
+
+```text
+inspect -> diagnose -> recover -> migrate -> verify
+```
+
+The repository applies the same admission rule to every future skill.
 
 ## The admission rule
 
@@ -45,6 +51,7 @@ catalog.json               Machine-readable index and category metadata
 templates/skill-template/  Nonfunctional authoring scaffold
 schemas/                   Machine-readable catalog and test schemas
 scripts/validate.py         Dependency-free repository validator
+scripts/validate_release_wave.py  Published-skill bundle validator
 tests/                     Validator contract tests
 docs/                      Installation, design, testing, and release policy
 .github/                   Contribution forms, dependency updates, and CI
@@ -52,11 +59,21 @@ docs/                      Installation, design, testing, and release policy
 
 The `skills/` directory contains tap-discoverable published skills and its explanatory README.
 
-
 ## Published skills
 
-- [`x-analytics-import`](skills/x-analytics-import/README.md): validate, normalize, import, and compare X Analytics CSV exports with idempotent private local snapshots.
-- [`x-post-writer`](skills/x-post-writer/README.md): draft and rewrite short-form X content with source locking, claim verification, format routing, and no invented experience.
+- [`hermes-environment-migration`](skills/hermes-environment-migration/README.md): Safely migrate Hermes environments with staged archives, integrity manifests, secret separation, selective imports, verification, and rollback.
+- [`hermes-gateway-doctor`](skills/hermes-gateway-doctor/README.md): Diagnose gateway failures from real process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
+- [`hermes-profile-audit`](skills/hermes-profile-audit/README.md): Compare a profile’s declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
+- [`hermes-skill-audit`](skills/hermes-skill-audit/README.md): Audit global and profile-local skills for dependencies, frontmatter, usage integrity, cron references, duplicates, and upstream drift.
+- [`hermes-stack-doctor`](skills/hermes-stack-doctor/README.md): Discover the installation architecture, delegate to focused evidence contracts, and report a GREEN, YELLOW, or RED stack verdict without repairs.
+- [`hermes-token-audit`](skills/hermes-token-audit/README.md): Audit token usage and cost with live schema discovery, aggregate-first privacy, and clear separation between estimates and provider billing.
+- [`hermes-update-doctor`](skills/hermes-update-doctor/README.md): Investigate update failures by separating remote drift, repository divergence, process locks, stale caches, partial installs, and runtime mismatches.
+- [`interview-me`](skills/interview-me/README.md): Ask one high-value question at a time, inspect available sources before questioning, and stop when more questions would not change the next action.
+- [`oss-tool-trust-audit`](skills/oss-tool-trust-audit/README.md): Read source and release machinery, treat popularity as context rather than proof, and separate technical legitimacy from adoption fit.
+- [`pre-build-feature-audit`](skills/pre-build-feature-audit/README.md): Run a read-only duplicate check across source, history, branches, issues, pull requests, roadmaps, and contributor guidance.
+- [`repo-readiness-audit`](skills/repo-readiness-audit/README.md): Determine whether a Git repository is ready for development, release, handoff, or contribution using independent evidence from repository and collaboration surfaces.
+- [`x-analytics-import`](skills/x-analytics-import/README.md): X Analytics CSV exports must be inspected, validated, normalized, imported, or compared through a repeatable private-by-default workflow.
+- [`x-post-writer`](skills/x-post-writer/README.md): drafting, rewriting, or repurposing short-form X content, including single posts, quote posts, replies, threads, launches, and personal stories, with source fidelity and claim verification built in.
 
 ## Design principles
 
@@ -81,9 +98,10 @@ See [Installation](docs/installation.md) for the installation workflow and platf
 ```bash
 python scripts/validate.py
 python -m unittest discover -s tests -v
+python scripts/validate_release_wave.py
 ```
 
-The validator checks tap layout, catalog agreement, frontmatter, behavior tests, supporting paths, JSON validity, and common secret patterns. Its own tests prove both acceptance and rejection behavior.
+The repository validator checks tap layout, catalog agreement, frontmatter, behavior tests, supporting paths, JSON validity, and common secret patterns. The release-wave validator runs every published skill's bundle validator and contract tests.
 
 ## Contributing
 

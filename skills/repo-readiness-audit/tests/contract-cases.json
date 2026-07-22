@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "skill": "repo-readiness-audit",
+  "cases": [
+    {
+      "id": "trigger-further-development",
+      "kind": "trigger",
+      "prompt": "Is this repo ready for further development?",
+      "should_trigger": true
+    },
+    {
+      "id": "trigger-where-left-off",
+      "kind": "trigger",
+      "prompt": "Where did we leave off in C:/work/widget?",
+      "should_trigger": true
+    },
+    {
+      "id": "trigger-release-check",
+      "kind": "trigger",
+      "prompt": "Give me a release-readiness check for this repository.",
+      "should_trigger": true
+    },
+    {
+      "id": "counter-one-file-review",
+      "kind": "trigger",
+      "prompt": "Review this one Python file for bugs.",
+      "should_trigger": false
+    },
+    {
+      "id": "counter-implementation",
+      "kind": "trigger",
+      "prompt": "Implement the new OAuth feature in this repo.",
+      "should_trigger": false
+    },
+    {
+      "id": "counter-no-repo",
+      "kind": "trigger",
+      "prompt": "Explain what git rebase does.",
+      "should_trigger": false
+    },
+    {
+      "id": "clean-ready",
+      "kind": "verdict",
+      "goal": "further-development",
+      "blockers": [],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "READY"
+    },
+    {
+      "id": "dirty-worktree-handoff",
+      "kind": "verdict",
+      "goal": "handoff",
+      "blockers": [
+        "unexplained tracked and untracked changes"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": false,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "failing-ci-clean-tree",
+      "kind": "verdict",
+      "goal": "release-work",
+      "blockers": [
+        "required CI failed"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": false,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "requested-changes-tests-pass",
+      "kind": "verdict",
+      "goal": "new-feature",
+      "blockers": [
+        "requested changes remain"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "stale-critical-docs",
+      "kind": "verdict",
+      "goal": "handoff",
+      "blockers": [
+        "handoff documentation contradicts implementation"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "minor-stale-docs",
+      "kind": "verdict",
+      "goal": "further-development",
+      "blockers": [],
+      "warnings": [
+        "secondary example uses old command name"
+      ],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "READY WITH WARNINGS"
+    },
+    {
+      "id": "incomplete-github-local-development",
+      "kind": "verdict",
+      "goal": "further-development",
+      "blockers": [],
+      "warnings": [
+        "remote collaboration state unavailable"
+      ],
+      "unverified": [
+        "pull requests",
+        "reviews",
+        "remote CI"
+      ],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": null,
+      "expected_verdict": "READY WITH WARNINGS"
+    },
+    {
+      "id": "incomplete-github-release",
+      "kind": "verdict",
+      "goal": "release-work",
+      "blockers": [],
+      "warnings": [],
+      "unverified": [
+        "pull requests",
+        "required CI",
+        "branch protection"
+      ],
+      "critical_unverified": [
+        "required CI",
+        "review completion"
+      ],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": null,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "passing-tests-not-release-ready",
+      "kind": "verdict",
+      "goal": "release-work",
+      "blockers": [
+        "release packaging and review gates incomplete"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": true,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "NOT READY"
+    },
+    {
+      "id": "mutation-detected",
+      "kind": "verdict",
+      "goal": "further-development",
+      "blockers": [
+        "validation command modified repository"
+      ],
+      "warnings": [],
+      "unverified": [],
+      "critical_unverified": [],
+      "clean_worktree": false,
+      "tests_passed": true,
+      "ci_required_passed": true,
+      "expected_verdict": "NOT READY"
+    }
+  ]
+}

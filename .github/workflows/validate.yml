@@ -41,3 +41,5 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Validate repository
         run: python scripts/validate.py
+      - name: Validate published skill bundles
+        run: python scripts/validate_release_wave.py

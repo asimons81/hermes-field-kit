@@ -1,0 +1,33 @@
+{
+  "positive_triggers": [
+    "Check whether this feature already exists.",
+    "Is anyone already building this?",
+    "Audit the idea before I start coding.",
+    "Would this duplicate an open pull request?"
+  ],
+  "negative_triggers": [
+    "The task is a bug-fix root-cause investigation.",
+    "The user wants a general repository health audit.",
+    "The user has already authorized implementation and duplication risk is immaterial."
+  ],
+  "verdicts": [
+    "CLEAR",
+    "PARTIAL OVERLAP",
+    "LIKELY DUPLICATE",
+    "UNCERTAIN"
+  ],
+  "report_headings": [
+    "Pre-Build Feature Audit",
+    "Verdict",
+    "Confidence",
+    "Relevant Code",
+    "Relevant Issues",
+    "Relevant Pull Requests",
+    "Relevant Branches and Commits",
+    "Plans and Policy",
+    "Reusable Work",
+    "Missing Functionality",
+    "Recommendation",
+    "Searches Performed"
+  ]
+}
