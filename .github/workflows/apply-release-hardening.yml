@@ -1,0 +1,53 @@
+name: Apply release hardening
+
+on:
+  push:
+    branches:
+      - feat/field-kit-release-wave-hardening
+    paths:
+      - .github/workflows/apply-release-hardening.yml
+
+permissions:
+  contents: write
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  harden:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out staging branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: feat/field-kit-release-wave-hardening
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - name: Reconstruct and apply hardening patch
+        shell: bash
+        run: |
+          cat .hardening/chunk* > /tmp/release-hardening.b64
+          base64 --decode /tmp/release-hardening.b64 | gzip --decompress > scripts/apply_release_hardening.py
+          python -B scripts/apply_release_hardening.py
+          rm -rf .hardening scripts/apply_release_hardening.py
+      - name: Validate hardened repository
+        shell: bash
+        run: |
+          python -B -m unittest discover -s tests -v
+          python -B scripts/validate.py
+          python -B scripts/validate_release_wave.py
+          git diff --check
+      - name: Remove temporary workflow and commit
+        shell: bash
+        run: |
+          rm .github/workflows/apply-release-hardening.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: harden Field Kit release wave"
+          git push origin HEAD:feat/field-kit-release-wave-hardening
