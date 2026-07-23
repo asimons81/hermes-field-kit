@@ -38,10 +38,26 @@ jobs:
       - name: Validate hardened repository
         shell: bash
         run: |
-          python -B -m unittest discover -s tests -v
-          python -B scripts/validate.py
-          python -B scripts/validate_release_wave.py
-          git diff --check
+          set +e
+          python -B -m unittest discover -s tests > /tmp/root-tests.log 2>&1; root_tests=$?
+          python -B scripts/validate.py > /tmp/repo-validator.log 2>&1; repo_validator=$?
+          python -B scripts/validate_release_wave.py > /tmp/release-validator.log 2>&1; release_validator=$?
+          git diff --check > /tmp/diff-check.log 2>&1; diff_check=$?
+          set -e
+          if [ "$root_tests" -ne 0 ] || [ "$repo_validator" -ne 0 ] || [ "$release_validator" -ne 0 ] || [ "$diff_check" -ne 0 ]; then
+            echo "=== root tests ($root_tests) ==="
+            tail -80 /tmp/root-tests.log
+            echo "=== repository validator ($repo_validator) ==="
+            cat /tmp/repo-validator.log
+            echo "=== release validator ($release_validator) ==="
+            tail -160 /tmp/release-validator.log
+            echo "=== diff check ($diff_check) ==="
+            cat /tmp/diff-check.log
+            exit 1
+          fi
+          cat /tmp/root-tests.log
+          cat /tmp/repo-validator.log
+          cat /tmp/release-validator.log
       - name: Remove temporary workflow and commit
         shell: bash
         run: |
