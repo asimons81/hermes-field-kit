@@ -6,6 +6,10 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [1.0.0] - 2026-07-23
+
 ### Added
 
 - Repository mission and admission rule

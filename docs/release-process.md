@@ -4,13 +4,13 @@
 
 Hermes Field Kit uses repository release versions and independent skill versions.
 
-## Before the first release
+## Release status
 
-The foundation is not a tagged release. The first release requires at least one admitted, tested, cataloged, tap-discoverable skill.
+Version 1.0.0 is the first tagged repository release. It includes thirteen admitted, tested, cataloged, tap-discoverable skills.
 
 ## Release checklist
 
-1. Confirm `main` is protected and green.
+1. Confirm `main` is green and review branch-protection or ruleset status.
 2. Run `python scripts/validate.py` from a clean checkout.
 3. Run `python -m unittest discover -s tests -v`.
 4. Run `python scripts/validate_release_wave.py`.
@@ -20,7 +20,8 @@ The foundation is not a tagged release. The first release requires at least one 
 8. Confirm the repository tap indexes the skill from `skills/<name>/SKILL.md`.
 9. Install and evaluate the skill in a fresh Hermes environment. Record the exact Hermes Agent version, installation method, discovery result, trigger result, counter-trigger result, and uninstall or rollback result.
 10. Update `CHANGELOG.md`.
-11. Create and verify an annotated SemVer tag and release notes.
+11. Create and verify an annotated SemVer tag and GitHub release notes.
+12. Confirm the release tag resolves to the tested commit and GitHub Actions succeeds on the release-preparation commit.
 
 ## Compatibility
 

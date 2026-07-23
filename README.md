@@ -9,7 +9,7 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Thirteen field-tested skills are now available.**
+**Version 1.0.0 is release-ready with thirteen field-tested skills.**
 
 The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
 
@@ -89,9 +89,16 @@ Read [Design Principles](docs/design-principles.md) for the reasoning behind the
 
 ## Installing skills
 
-The repository can be added as a Hermes tap, or any `skills/<skill-name>/` directory can be copied into the user's Hermes skills directory. Review each skill README and scripts before installation.
+Add the repository as a Hermes tap, then install any published skill by its repository-qualified identifier:
 
-See [Installation](docs/installation.md) for the installation workflow and platform paths.
+```bash
+hermes skills tap add asimons81/hermes-field-kit
+hermes skills install asimons81/hermes-field-kit/hermes-stack-doctor --yes
+```
+
+Replace `hermes-stack-doctor` with any name from the published-skills list. Start a new Hermes session after installation because discovery may be cached for the lifetime of an existing session.
+
+See [Installation](docs/installation.md) for search, inspection, updates, removal, manual installation, and platform paths.
 
 ## Validation
 
@@ -111,7 +118,7 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). New skill proposals use the dedic
 
 The repository and catalog use Semantic Versioning. Individual skills carry their own SemVer version in `SKILL.md`. No release tag will be created solely for the scaffold.
 
-See [Release Process](docs/release-process.md).
+See [Release Process](docs/release-process.md) and [Compatibility](docs/compatibility.md).
 
 ## Security
 
