@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   PYTHONDONTWRITEBYTECODE: "1"
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: feat/field-kit-release-wave-hardening
-          persist-credentials: true
+          persist-credentials: false
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
@@ -38,45 +38,25 @@ jobs:
           cat .hardening/chunk* > /tmp/release-hardening.b64
           base64 --decode /tmp/release-hardening.b64 | gzip --decompress > scripts/apply_release_hardening.py
           python -B scripts/apply_release_hardening.py
-          rm -rf .hardening scripts/apply_release_hardening.py
+          rm -rf .hardening scripts/apply_release_hardening.py hardening-validation.txt
       - name: Validate hardened repository
         shell: bash
         run: |
-          set +e
-          python -B -m unittest discover -s tests > /tmp/root-tests.log 2>&1; root_tests=$?
-          python -B scripts/validate.py > /tmp/repo-validator.log 2>&1; repo_validator=$?
-          python -B scripts/validate_release_wave.py > /tmp/release-validator.log 2>&1; release_validator=$?
-          git diff --check > /tmp/diff-check.log 2>&1; diff_check=$?
-          set -e
-          if [ "$root_tests" -ne 0 ] || [ "$repo_validator" -ne 0 ] || [ "$release_validator" -ne 0 ] || [ "$diff_check" -ne 0 ]; then
-            {
-              echo "=== root tests ($root_tests) ==="
-              cat /tmp/root-tests.log
-              echo "=== repository validator ($repo_validator) ==="
-              cat /tmp/repo-validator.log
-              echo "=== release validator ($release_validator) ==="
-              cat /tmp/release-validator.log
-              echo "=== diff check ($diff_check) ==="
-              cat /tmp/diff-check.log
-            } > hardening-validation.txt
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -f hardening-validation.txt
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: capture hardening validation failure"
-              git push origin HEAD:feat/field-kit-release-wave-hardening
-            fi
-            exit 1
-          fi
-          rm -f hardening-validation.txt
-          cat /tmp/root-tests.log
-          cat /tmp/repo-validator.log
-          cat /tmp/release-validator.log
-      - name: Commit validated hardening
+          python -B -m unittest discover -s tests
+          python -B scripts/validate.py
+          python -B scripts/validate_release_wave.py
+          git diff --check
+      - name: Package validated tree
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "fix: harden Field Kit release wave"
-          git push origin HEAD:feat/field-kit-release-wave-hardening
+          tar --exclude=.git --exclude=.github/workflows/apply-release-hardening.yml -czf /tmp/hardened-field-kit-tree.tar.gz .
+          sha256sum /tmp/hardened-field-kit-tree.tar.gz > /tmp/hardened-field-kit-tree.sha256
+      - name: Upload validated tree
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: hardened-field-kit-tree
+          path: |
+            /tmp/hardened-field-kit-tree.tar.gz
+            /tmp/hardened-field-kit-tree.sha256
+          if-no-files-found: error
+          retention-days: 1
