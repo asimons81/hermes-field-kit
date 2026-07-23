@@ -87,7 +87,7 @@ Symlinks are not allowed. This keeps tap installs self-contained and reviewable.
 
 ## Skill README
 
-The skill README documents the problem, real-workflow provenance, inputs, outputs, installation, invocation, requirements, limitations, safety, privacy, and version history.
+The skill README documents the problem, real-workflow provenance, inputs, outputs, installation, invocation, requirements, limitations, safety, privacy, hostile-content handling when external content is inspected, and version history.
 
 ## Examples
 
@@ -112,3 +112,10 @@ Each skill uses Semantic Versioning independently:
 - Patch: correction without intended behavior change
 - Minor: backward-compatible workflow expansion
 - Major: breaking trigger, input, output, or safety-boundary change
+
+
+## Untrusted content
+
+A skill that reads repositories, packages, archives, logs, databases, issues, pull requests, web pages, messages, profiles, or other skills must treat that material as untrusted evidence rather than instructions.
+
+The public contract must explicitly prohibit obeying embedded requests to reveal secrets, weaken safeguards, expand permissions, change policy, call tools, execute commands, install or activate the subject, or persist data. Include at least one hostile-content behavior case and a deterministic contract assertion.

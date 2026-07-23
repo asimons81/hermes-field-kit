@@ -2,6 +2,149 @@
   "schema_version": "1.0",
   "skills": [
     {
+      "name": "hermes-environment-migration",
+      "category": "operations",
+      "path": "skills/hermes-environment-migration",
+      "version": "1.0.0",
+      "description": "Use when a Hermes environment must be safely migrated between machines with staged exports, integrity manifests, secret separation, selective imports, verification, and rollback.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-gateway-doctor",
+      "category": "operations",
+      "path": "skills/hermes-gateway-doctor",
+      "version": "1.0.0",
+      "description": "Use when Hermes messaging gateway failures must be diagnosed across process state, adapters, credential posture, logs, delivery evidence, polling conflicts, and service persistence without automatic repair.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-profile-audit",
+      "category": "operations",
+      "path": "skills/hermes-profile-audit",
+      "version": "1.0.0",
+      "description": "Use when a Hermes profile must be audited for role clarity, authority boundaries, configuration fit, skills, memory posture, credential scope, handoffs, and recurring operational failures.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-skill-audit",
+      "category": "software-development",
+      "path": "skills/hermes-skill-audit",
+      "version": "1.0.0",
+      "description": "Use when installed Hermes skills must be audited for overlap, staleness, broken references, usage-integrity problems, and dead weight without changing the installation.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-stack-doctor",
+      "category": "operations",
+      "path": "skills/hermes-stack-doctor",
+      "version": "1.0.0",
+      "description": "Use when a top-level, read-only Hermes health audit is needed across installation, updates, gateways, cron, profiles, skills, repositories, credential posture, persistence, and cost signals.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-token-audit",
+      "category": "operations",
+      "path": "skills/hermes-token-audit",
+      "version": "1.0.0",
+      "description": "Use when Hermes token usage, cost attribution, runaway sessions, cron consumption, or billing discrepancies must be investigated using privacy-preserving, schema-aware evidence.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "hermes-update-doctor",
+      "category": "operations",
+      "path": "skills/hermes-update-doctor",
+      "version": "1.0.0",
+      "description": "Use when stuck, contradictory, blocked, or incomplete Hermes updates must be diagnosed across Git state, remotes, running processes, caches, and installed versions before recovery.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "interview-me",
+      "category": "productivity",
+      "path": "skills/interview-me",
+      "version": "0.2.0",
+      "description": "Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "oss-tool-trust-audit",
+      "category": "security",
+      "path": "skills/oss-tool-trust-audit",
+      "version": "1.0.0",
+      "description": "Use when an open-source developer tool, package, CLI, agent, or MCP server must be evaluated for legitimacy, supply-chain risk, telemetry, dangerous capabilities, claim accuracy, and adoption fit.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "pre-build-feature-audit",
+      "category": "software-development",
+      "path": "skills/pre-build-feature-audit",
+      "version": "1.1.0",
+      "description": "Use when a proposed open-source feature must be checked across source, history, branches, issues, pull requests, roadmaps, and contributor guidance before implementation begins.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
+      "name": "repo-readiness-audit",
+      "category": "software-development",
+      "path": "skills/repo-readiness-audit",
+      "version": "0.1.0",
+      "description": "Use when a user asks whether an identified repository is ready for further development, release work, a new feature, handoff, or a new contributor, requiring a disciplined read-only audit before an evidence-backed verdict.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "stable"
+    },
+    {
       "name": "x-analytics-import",
       "category": "data-analysis",
       "path": "skills/x-analytics-import",
