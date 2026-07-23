@@ -1,7 +1,7 @@
 === root tests (0) ===
 ...........
 ----------------------------------------------------------------------
-Ran 11 tests in 0.054s
+Ran 11 tests in 0.033s
 
 OK
 === repository validator (0) ===
@@ -20,10 +20,10 @@ PASS: pre-build-feature-audit: 10 contract tests + validator
 PASS: x-analytics-import: 21 contract tests
 PASS: x-post-writer: 8 contract tests + validator
 repo-readiness-audit validator failed:
-  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 251
-    combined_boundary = (skill + "
-                                 ^
-SyntaxError: unterminated string literal (detected at line 251)
+  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 270
+    r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*['"][A-Za-z0-9+/=_-]{20,}"
+                                                 ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '(' on line 269
 
 
 repo-readiness-audit contract tests failed:
@@ -41,10 +41,10 @@ Traceback (most recent call last):
     __import__(name)
   File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/tests/test_contracts.py", line 15, in <module>
     spec.loader.exec_module(validator)
-  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 251
-    combined_boundary = (skill + "
-                                 ^
-SyntaxError: unterminated string literal (detected at line 251)
+  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 270
+    r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*['"][A-Za-z0-9+/=_-]{20,}"
+                                                 ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '(' on line 269
 
 
 ----------------------------------------------------------------------
@@ -53,5 +53,5 @@ Ran 1 test in 0.000s
 FAILED (errors=1)
 
 
-Python syntax failure in skills/repo-readiness-audit/scripts/validate_bundle.py: unterminated string literal (detected at line 251) (validate_bundle.py, line 251)
+Python syntax failure in skills/repo-readiness-audit/scripts/validate_bundle.py: closing parenthesis ']' does not match opening parenthesis '(' on line 269 (validate_bundle.py, line 270)
 === diff check (0) ===
