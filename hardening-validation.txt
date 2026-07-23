@@ -1,0 +1,57 @@
+=== root tests (0) ===
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.054s
+
+OK
+=== repository validator (0) ===
+Validation passed: 13 published skill(s), 29 JSON file(s), tap layout compatible, no common secret patterns detected.
+=== release validator (1) ===
+PASS: hermes-environment-migration: 10 contract tests + validator
+PASS: hermes-gateway-doctor: 10 contract tests + validator
+PASS: hermes-profile-audit: 10 contract tests + validator
+PASS: hermes-skill-audit: 10 contract tests + validator
+PASS: hermes-stack-doctor: 10 contract tests + validator
+PASS: hermes-token-audit: 10 contract tests + validator
+PASS: hermes-update-doctor: 10 contract tests + validator
+PASS: interview-me: 10 contract tests + validator
+PASS: oss-tool-trust-audit: 10 contract tests + validator
+PASS: pre-build-feature-audit: 10 contract tests + validator
+PASS: x-analytics-import: 21 contract tests
+PASS: x-post-writer: 8 contract tests + validator
+repo-readiness-audit validator failed:
+  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 251
+    combined_boundary = (skill + "
+                                 ^
+SyntaxError: unterminated string literal (detected at line 251)
+
+
+repo-readiness-audit contract tests failed:
+test_contracts (unittest.loader._FailedTest.test_contracts) ... ERROR
+
+======================================================================
+ERROR: test_contracts (unittest.loader._FailedTest.test_contracts)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_contracts
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/unittest/loader.py", line 419, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/unittest/loader.py", line 362, in _get_module_from_name
+    __import__(name)
+  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/tests/test_contracts.py", line 15, in <module>
+    spec.loader.exec_module(validator)
+  File "/home/runner/work/hermes-field-kit/hermes-field-kit/skills/repo-readiness-audit/scripts/validate_bundle.py", line 251
+    combined_boundary = (skill + "
+                                 ^
+SyntaxError: unterminated string literal (detected at line 251)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+
+
+Python syntax failure in skills/repo-readiness-audit/scripts/validate_bundle.py: unterminated string literal (detected at line 251) (validate_bundle.py, line 251)
+=== diff check (0) ===
