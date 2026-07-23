@@ -14,6 +14,9 @@ on:
 permissions:
   contents: read
 
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
 concurrency:
   group: validate-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -38,6 +41,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Test validator contract
-        run: python -m unittest discover -s tests -v
+        run: python -B -m unittest discover -s tests -v
       - name: Validate repository
         run: python scripts/validate.py
+      - name: Validate published skills and public tree
+        run: python -B scripts/validate_release_wave.py
