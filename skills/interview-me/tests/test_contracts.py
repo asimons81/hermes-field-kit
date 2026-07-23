@@ -55,6 +55,15 @@ class ContractTests(unittest.TestCase):
         for phrase in CASES["positive_triggers"]:
             self.assertIn(phrase.lower(), lower, phrase)
 
+    def test_explicit_interview_request_has_routing_priority(self):
+        data = frontmatter()
+        self.assertIn("interview me before you start as a standalone command", data["description"].lower())
+        self.assertIn(
+            'an explicit request to "interview me" or ask questions before starting is sufficient to load this skill',
+            TEXT.lower(),
+        )
+        self.assertIn("without inventing one", TEXT.lower())
+
     def test_counter_triggers_are_exactly_represented(self):
         lower = TEXT.lower()
         for phrase in CASES["negative_triggers"]:

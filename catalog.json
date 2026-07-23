@@ -97,7 +97,7 @@
       "category": "productivity",
       "path": "skills/interview-me",
       "version": "0.2.0",
-      "description": "Use when an adaptive, consent-based interview is needed before producing work because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.",
+      "description": "Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.",
       "platforms": [
         "linux",
         "macos",

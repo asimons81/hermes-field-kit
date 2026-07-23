@@ -43,7 +43,15 @@ Start a new Hermes session after installation. Skill discovery may be cached for
 
 ## Update and remove
 
-Review version changes before replacing an installed directory. To remove a skill, delete its installed directory and start a new Hermes session.
+Use the lifecycle that matches the installation method:
+
+- **Tap-installed skill:** use the update or uninstall command supported by the installed Hermes version.
+- **Manually copied skill:** review the new version, replace the complete installed skill directory with the reviewed directory from the selected commit, and start a new Hermes session.
+- **Pinned raw-URL review install:** treat it as a one-commit verification artifact. Do not assume Hermes can update it in place. Reinstall from the newly selected commit or remove its installed directory.
+
+Do not mix lifecycle methods. In particular, a raw URL pinned to one commit is not evidence that the repository's normal tap-update path is broken.
+
+To remove a manually copied or pinned review skill, delete its complete installed directory and start a new Hermes session.
 
 ## Safety
 

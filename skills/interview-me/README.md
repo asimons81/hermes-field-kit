@@ -2,7 +2,7 @@
 
 Open-source Hermes Agent skill, version **0.2.0**.
 
-An adaptive interview protocol that asks one high-value question at a time, inspects available sources before questioning the user, and stops when more questions would not change the next action.
+An adaptive interview protocol that loads when the user explicitly asks to be interviewed, asks one high-value question at a time, inspects available sources before questioning the user, and stops when more questions would not change the next action.
 
 ## Provenance
 

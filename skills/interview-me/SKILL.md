@@ -1,6 +1,6 @@
 ---
 name: interview-me
-description: Use when an adaptive, consent-based interview is needed before producing work because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.
+description: Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.
 version: 0.2.0
 author: Tony Simons
 license: Apache-2.0
@@ -25,6 +25,8 @@ The skill is evidence-first. It identifies unavailable evidence, separates facts
 - Ask me questions so you understand what I want.
 - Help me turn this rough idea into a decision brief.
 - Learn my preferences before drafting the plan.
+
+An explicit request to "interview me" or ask questions before starting is sufficient to load this skill even when the downstream task has not been supplied yet. The first question should establish that task without inventing one.
 
 ## Counter-Triggers
 
