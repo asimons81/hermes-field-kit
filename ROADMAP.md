@@ -14,14 +14,15 @@ This roadmap describes direction, not a promise of dates.
 - [x] Add hardened continuous integration
 - [ ] Enable and verify the `main` repository ruleset and native security controls
 
-## First release candidate
+## First release
 
 - [x] Select one proven daily-driver skill
 - [x] Remove personal data and environment-specific assumptions
 - [x] Add realistic examples and behavior tests
-- [ ] Validate installation from the tap in a fresh Hermes environment
+- [x] Validate repository-qualified installation in a fresh Hermes environment
+- [ ] Validate custom tap-backed search when Hermes exposes that path reliably
 - [x] Add the first catalog entry
-- [ ] Cut the first tagged release
+- [x] Cut the first tagged release
 
 ## Later
 
