@@ -30,6 +30,8 @@ Surface runaway usage, unavailable state, stale durable records, and backup or r
 
 ### 8. Issue verdict
 
+Set the overall status to the worst confirmed Health Matrix status. Any confirmed `RED` subsystem forces overall `RED`. Confirmed gateway or message-delivery failure is `RED`, even when the process itself is running. Use `YELLOW` only when no subsystem is confirmed `RED` and required delivery and integrity remain available.
+
 Prioritize delivery and integrity failures over cleanup findings, record evidence conflicts, and recommend the smallest focused follow-up skill.
 
 ## Evidence discipline

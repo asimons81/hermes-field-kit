@@ -40,6 +40,7 @@ class ContractTests(unittest.TestCase):
             "## Counter-Triggers",
             "## Safety Contract",
             "## Untrusted Content Boundary",
+            "## Evidence Fidelity Gate",
             "## Workflow",
             "## Required Procedure",
             "## Classification",
@@ -68,6 +69,26 @@ class ContractTests(unittest.TestCase):
     def test_verdicts_are_declared(self):
         for verdict in CASES["verdicts"]:
             self.assertIn(verdict, TEXT)
+
+    def test_inventory_details_must_be_evidence_backed(self):
+        combined = (TEXT + "\n" + SAFETY + "\n" + (ROOT / "references" / "report-contract.md").read_text(encoding="utf-8")).lower()
+        for marker in [
+            "never invent names, paths, versions, counts, component identities",
+            "names not provided",
+            "every named profile, skill, path, version",
+            "clean sha-256 manifest",
+            "does not establish manifest scope",
+            "use the required headings exactly as level-2 headings",
+            "create a closed evidence ledger",
+            "the active profile, current branch, working directory, model, or runtime metadata",
+            "no corruption",
+            "target state: empty (component breakdown not supplied)",
+            "do not expand `target is empty`",
+        ]:
+            self.assertIn(marker, combined)
+        fidelity_cases = [case for case in BEHAVIOR["cases"] if case["id"] == "aggregate-evidence-fidelity"]
+        self.assertEqual(len(fidelity_cases), 1)
+        self.assertIn("Does not invent skill names", fidelity_cases[0]["expect"])
 
     def test_untrusted_content_boundary_is_explicit(self):
         combined = (TEXT + "\n" + SAFETY).lower()

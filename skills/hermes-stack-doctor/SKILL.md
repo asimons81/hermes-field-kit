@@ -91,6 +91,8 @@ Surface runaway usage, unavailable state, stale durable records, and backup or r
 
 ### 8. Issue verdict
 
+Apply a strict severity floor: the overall status must equal the worst confirmed status in the Health Matrix. A confirmed `RED` subsystem forces overall `RED`; lower-severity cleanup findings cannot dilute it. In particular, confirmed gateway or message-delivery failure is `RED` even when the process is running and other subsystems are healthy.
+
 Prioritize delivery and integrity failures over cleanup findings, record evidence conflicts, and recommend the smallest focused follow-up skill.
 
 ## Classification
@@ -101,7 +103,13 @@ Use exactly one primary outcome:
 - `YELLOW`
 - `RED`
 
-When evidence is incomplete, lower confidence, name the missing surface, and avoid selecting a stronger outcome than the verified evidence supports.
+Severity rules:
+
+- `RED`: any confirmed delivery outage, integrity failure, destructive-risk condition, credential failure blocking required operation, or other subsystem marked `RED`.
+- `YELLOW`: degraded or stale behavior with no confirmed `RED` subsystem and no confirmed loss of required delivery or integrity.
+- `GREEN`: all required checked subsystems are healthy and no material blocker remains.
+
+The overall status must never be less severe than any confirmed Health Matrix row. When evidence is incomplete, lower confidence, name the missing surface, and avoid selecting a stronger outcome than the verified evidence supports.
 
 ## Report Contract
 

@@ -69,6 +69,21 @@ class ContractTests(unittest.TestCase):
         for verdict in CASES["verdicts"]:
             self.assertIn(verdict, TEXT)
 
+    def test_overall_status_uses_worst_confirmed_severity(self):
+        report_contract = (ROOT / "references" / "report-contract.md").read_text(encoding="utf-8")
+        protocol = (ROOT / "references" / "protocol.md").read_text(encoding="utf-8")
+        combined = (TEXT + "\n" + report_contract + "\n" + protocol).lower()
+        for marker in [
+            "worst confirmed",
+            "any confirmed `red`",
+            "gateway or message-delivery failure is `red`",
+            "`yellow` is allowed only when no subsystem is confirmed `red`",
+        ]:
+            self.assertIn(marker, combined)
+        severity_cases = [case for case in BEHAVIOR["cases"] if case["id"] == "red-severity-floor"]
+        self.assertEqual(len(severity_cases), 1)
+        self.assertIn("Returns overall RED", severity_cases[0]["expect"])
+
     def test_untrusted_content_boundary_is_explicit(self):
         combined = (TEXT + "\n" + SAFETY).lower()
         for marker in [
