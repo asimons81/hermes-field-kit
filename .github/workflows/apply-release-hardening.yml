@@ -45,16 +45,26 @@ jobs:
           git diff --check > /tmp/diff-check.log 2>&1; diff_check=$?
           set -e
           if [ "$root_tests" -ne 0 ] || [ "$repo_validator" -ne 0 ] || [ "$release_validator" -ne 0 ] || [ "$diff_check" -ne 0 ]; then
-            echo "=== root tests ($root_tests) ==="
-            tail -80 /tmp/root-tests.log
-            echo "=== repository validator ($repo_validator) ==="
-            cat /tmp/repo-validator.log
-            echo "=== release validator ($release_validator) ==="
-            tail -160 /tmp/release-validator.log
-            echo "=== diff check ($diff_check) ==="
-            cat /tmp/diff-check.log
+            {
+              echo "=== root tests ($root_tests) ==="
+              cat /tmp/root-tests.log
+              echo "=== repository validator ($repo_validator) ==="
+              cat /tmp/repo-validator.log
+              echo "=== release validator ($release_validator) ==="
+              cat /tmp/release-validator.log
+              echo "=== diff check ($diff_check) ==="
+              cat /tmp/diff-check.log
+            } > hardening-validation.log
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add hardening-validation.log
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: capture hardening validation failure"
+              git push origin HEAD:feat/field-kit-release-wave-hardening
+            fi
             exit 1
           fi
+          rm -f hardening-validation.log
           cat /tmp/root-tests.log
           cat /tmp/repo-validator.log
           cat /tmp/release-validator.log
