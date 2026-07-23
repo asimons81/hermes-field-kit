@@ -60,3 +60,23 @@ jobs:
             /tmp/hardened-field-kit-tree.sha256
           if-no-files-found: error
           retention-days: 1
+      - name: Check out original release head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: feat/field-kit-release-wave
+          path: original-release
+          persist-credentials: false
+      - name: Package original release tree
+        shell: bash
+        run: |
+          tar --exclude=.git -czf /tmp/original-field-kit-tree.tar.gz -C original-release .
+          sha256sum /tmp/original-field-kit-tree.tar.gz > /tmp/original-field-kit-tree.sha256
+      - name: Upload original release tree
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: original-field-kit-tree
+          path: |
+            /tmp/original-field-kit-tree.tar.gz
+            /tmp/original-field-kit-tree.sha256
+          if-no-files-found: error
+          retention-days: 1
