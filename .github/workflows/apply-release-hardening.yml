@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: feat/field-kit-release-wave-hardening
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
@@ -60,141 +60,42 @@ jobs:
             /tmp/hardened-field-kit-tree.sha256
           if-no-files-found: error
           retention-days: 1
-      - name: Check out original release head
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          ref: feat/field-kit-release-wave
-          path: original-release
-          persist-credentials: false
-      - name: Package original release tree
-        shell: bash
-        run: |
-          tar --exclude=.git -czf /tmp/original-field-kit-tree.tar.gz -C original-release .
-          sha256sum /tmp/original-field-kit-tree.tar.gz > /tmp/original-field-kit-tree.sha256
-      - name: Upload original release tree
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: original-field-kit-tree
-          path: |
-            /tmp/original-field-kit-tree.tar.gz
-            /tmp/original-field-kit-tree.sha256
-          if-no-files-found: error
-          retention-days: 1
-      - name: Create atomic promotion commit object
+      - name: Publish atomic promotion object
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-          ORIGINAL_RELEASE_SHA: 09b291adca26f677461189621c102d13edaee85a
           MAIN_BASE_SHA: b045e30340f290e217d20880e5c206092374085c
+          PROMOTION_BRANCH: feat/field-kit-release-wave-promotion
         shell: bash
         run: |
-          python -B - <<'PY'
-          from __future__ import annotations
-          import base64
-          import hashlib
+          rm -rf /tmp/field-kit-promotion
+          mkdir -p /tmp/field-kit-promotion
+          tar \
+            --exclude=.git \
+            --exclude=.hardening \
+            --exclude=original-release \
+            --exclude=.github/workflows/apply-release-hardening.yml \
+            --exclude=hardening-validation.txt \
+            -cf - . | tar -xf - -C /tmp/field-kit-promotion
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          export GIT_INDEX_FILE=/tmp/field-kit-promotion.index
+          rm -f "$GIT_INDEX_FILE"
+          git --git-dir="$GITHUB_WORKSPACE/.git" --work-tree=/tmp/field-kit-promotion read-tree --empty
+          git --git-dir="$GITHUB_WORKSPACE/.git" --work-tree=/tmp/field-kit-promotion add -A
+          tree_sha=$(git --git-dir="$GITHUB_WORKSPACE/.git" --work-tree=/tmp/field-kit-promotion write-tree)
+          commit_sha=$(printf '%s\n' 'feat: add hardened Hermes Field Kit release wave' | git commit-tree "$tree_sha" -p "$MAIN_BASE_SHA")
+          git push --force origin "$commit_sha:refs/heads/$PROMOTION_BRANCH"
+
+          python -B - <<PY
           import json
-          import os
-          import stat
-          import urllib.error
-          import urllib.request
           from pathlib import Path
-
-          repo = os.environ['GITHUB_REPOSITORY']
-          token = os.environ['GITHUB_TOKEN']
-          original_sha = os.environ['ORIGINAL_RELEASE_SHA']
-          parent_sha = os.environ['MAIN_BASE_SHA']
-          root = Path.cwd()
-          original = root / 'original-release'
-          excluded = {
-              '.github/workflows/apply-release-hardening.yml',
-          }
-
-          def api(method: str, path: str, payload=None):
-              url = f'https://api.github.com/repos/{repo}{path}'
-              data = None if payload is None else json.dumps(payload).encode('utf-8')
-              req = urllib.request.Request(url, data=data, method=method)
-              req.add_header('Accept', 'application/vnd.github+json')
-              req.add_header('Authorization', f'Bearer {token}')
-              req.add_header('X-GitHub-Api-Version', '2022-11-28')
-              if data is not None:
-                  req.add_header('Content-Type', 'application/json')
-              try:
-                  with urllib.request.urlopen(req, timeout=60) as response:
-                      return json.load(response)
-              except urllib.error.HTTPError as exc:
-                  body = exc.read().decode('utf-8', errors='replace')
-                  raise RuntimeError(f'{method} {path} failed: {exc.code}: {body}') from exc
-
-          def collect(base: Path, hardened: bool):
-              result = {}
-              for path in base.rglob('*'):
-                  if not path.is_file():
-                      continue
-                  rel = path.relative_to(base).as_posix()
-                  if rel.startswith('.git/'):
-                      continue
-                  if hardened and (rel in excluded or rel.startswith('original-release/')):
-                      continue
-                  mode = '100755' if path.stat().st_mode & stat.S_IXUSR else '100644'
-                  result[rel] = (path.read_bytes(), mode)
-              return result
-
-          before = collect(original, False)
-          after = collect(root, True)
-          added = sorted(set(after) - set(before))
-          deleted = sorted(set(before) - set(after))
-          changed = sorted(
-              path for path in set(before) & set(after)
-              if before[path] != after[path]
-          )
-          delta = added + changed
-          if len(added) != 1 or deleted or len(changed) != 93:
-              raise RuntimeError(
-                  f'unexpected tree delta: added={len(added)} deleted={len(deleted)} changed={len(changed)}'
-              )
-
-          original_commit = api('GET', f'/git/commits/{original_sha}')
-          entries = []
-          manifest = []
-          for path in delta:
-              content, mode = after[path]
-              blob = api('POST', '/git/blobs', {
-                  'content': base64.b64encode(content).decode('ascii'),
-                  'encoding': 'base64',
-              })
-              entries.append({'path': path, 'mode': mode, 'type': 'blob', 'sha': blob['sha']})
-              manifest.append({
-                  'path': path,
-                  'mode': mode,
-                  'size': len(content),
-                  'sha256': hashlib.sha256(content).hexdigest(),
-                  'blob_sha': blob['sha'],
-              })
-          for path in deleted:
-              entries.append({'path': path, 'mode': '100644', 'type': 'blob', 'sha': None})
-
-          tree = api('POST', '/git/trees', {
-              'base_tree': original_commit['tree']['sha'],
-              'tree': entries,
-          })
-          commit = api('POST', '/git/commits', {
-              'message': 'feat: add hardened Hermes Field Kit release wave',
-              'tree': tree['sha'],
-              'parents': [parent_sha],
-          })
-          manifest_bytes = json.dumps(manifest, sort_keys=True, separators=(',', ':')).encode('utf-8')
-          result = {
-              'commit_sha': commit['sha'],
-              'tree_sha': tree['sha'],
-              'parent_sha': parent_sha,
-              'original_release_sha': original_sha,
-              'added': len(added),
-              'changed': len(changed),
-              'deleted': len(deleted),
-              'manifest_sha256': hashlib.sha256(manifest_bytes).hexdigest(),
-              'paths': manifest,
-          }
-          Path('/tmp/promotion-commit.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
-          print(json.dumps({k: v for k, v in result.items() if k != 'paths'}, indent=2))
+          Path('/tmp/promotion-commit.json').write_text(json.dumps({
+              'commit_sha': '$commit_sha',
+              'tree_sha': '$tree_sha',
+              'parent_sha': '$MAIN_BASE_SHA',
+              'promotion_branch': '$PROMOTION_BRANCH',
+          }, indent=2), encoding='utf-8')
           PY
       - name: Upload promotion metadata
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
