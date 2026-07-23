@@ -12,6 +12,10 @@ permissions:
 env:
   PYTHONDONTWRITEBYTECODE: "1"
 
+concurrency:
+  group: field-kit-release-hardening
+  cancel-in-progress: true
+
 jobs:
   harden:
     if: github.event.pull_request.head.ref == 'feat/field-kit-release-wave-hardening'
@@ -68,10 +72,9 @@ jobs:
           cat /tmp/root-tests.log
           cat /tmp/repo-validator.log
           cat /tmp/release-validator.log
-      - name: Remove temporary workflow and commit
+      - name: Commit validated hardening
         shell: bash
         run: |
-          rm .github/workflows/apply-release-hardening.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
