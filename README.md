@@ -1,9 +1,16 @@
+<p align="center">
+  <img src="docs/assets/hermes-field-kit-banner.jpg" alt="Hermes Field Kit banner featuring Hermes with gold and purple lightning" width="100%">
+</p>
+
 # Hermes Field Kit
 
 [![Validate repository](https://github.com/asimons81/hermes-field-kit/actions/workflows/validate.yml/badge.svg)](https://github.com/asimons81/hermes-field-kit/actions/workflows/validate.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![X: @tonysimons_](https://img.shields.io/badge/X-%40tonysimons__-000000?logo=x&logoColor=white)](https://x.com/tonysimons_)
 
 **Field-tested, open-source skills for Hermes Agent.**
+
+**Tags:** `hermes-agent` · `hermes-ai` · `ai-agents` · `agent-skills` · `developer-tools` · `automation` · `open-source` · `tonysimons_`
 
 Hermes Field Kit is a curated collection of reusable workflows that have earned their place through real, repeated use. It is intentionally not a bulk skill dump.
 
