@@ -6,6 +6,20 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [1.0.1] - 2026-07-23
+
+### Fixed
+
+- Corrected installation documentation to describe the reproducible skills.sh-backed repository identifier flow.
+- Removed the unsupported claim that custom tap registration populates search in Hermes Agent v0.19.0.
+- Documented the current update-check quirk where an unchanged skills.sh installation may continue to report `update_available` after update.
+- Committed compatibility and release-note documentation that was omitted from v1.0.0.
+- Corrected the CI compatibility claim to Python 3.11 and 3.13.
+
+## [1.0.0] - 2026-07-23
+
 ### Added
 
 - Repository mission and admission rule

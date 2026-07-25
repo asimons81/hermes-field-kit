@@ -9,7 +9,7 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Thirteen field-tested skills are now available.**
+**Version 1.0.1 is the current corrective release with thirteen field-tested skills.**
 
 The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
 
@@ -89,9 +89,18 @@ Read [Design Principles](docs/design-principles.md) for the reasoning behind the
 
 ## Installing skills
 
-The repository can be added as a Hermes tap, or any `skills/<skill-name>/` directory can be copied into the user's Hermes skills directory. Review each skill README and scripts before installation.
+Install any published skill by its repository-qualified identifier:
 
-See [Installation](docs/installation.md) for the installation workflow and platform paths.
+```bash
+hermes skills inspect asimons81/hermes-field-kit/hermes-stack-doctor
+hermes skills install asimons81/hermes-field-kit/hermes-stack-doctor --yes
+```
+
+In the Hermes v0.19.0 validation environment, this identifier resolved through the skills.sh registry. Custom tap registration succeeded, but tap-backed search did not return the skill, so tap search is not claimed as supported in this release.
+
+Replace `hermes-stack-doctor` with any name from the published-skills list. Start a new Hermes session after installation because discovery may be cached for the lifetime of an existing session.
+
+See [Installation](docs/installation.md) for inspection, installation, update behavior, removal, manual installation, and platform paths.
 
 ## Validation
 
@@ -111,7 +120,7 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). New skill proposals use the dedic
 
 The repository and catalog use Semantic Versioning. Individual skills carry their own SemVer version in `SKILL.md`. No release tag will be created solely for the scaffold.
 
-See [Release Process](docs/release-process.md).
+See [Release Process](docs/release-process.md) and [Compatibility](docs/compatibility.md).
 
 ## Security
 
