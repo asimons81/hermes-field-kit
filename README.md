@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/hermes-field-kit-banner.jpg" alt="Hermes Field Kit banner featuring Hermes with gold and purple lightning" width="100%">
+  <img src="docs/assets/hermes-field-kit-banner-v2.jpg" alt="Hermes Field Kit banner featuring Hermes with gold and purple lightning" width="100%">
 </p>
 
 # Hermes Field Kit
