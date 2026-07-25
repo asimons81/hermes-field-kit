@@ -8,7 +8,7 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 No unreleased changes.
 
-## [1.0.1] - 2026-07-23
+## [1.0.1] - 2026-07-24
 
 ### Fixed
 
