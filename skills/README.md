@@ -31,6 +31,10 @@ Compare a profile’s declared responsibilities with its actual tools, skills, p
 
 Audit global and profile-local skills for dependencies, frontmatter, usage integrity, cron references, duplicates, and upstream drift.
 
+### hermes-skill-consolidate
+
+**Experimental.** Consolidate, restructure, deprecate, split, or extract shared references from overlapping skills using a read-only planning phase, scope-bound approval, rollback snapshots, staged writes, and post-change verification.
+
 ### hermes-stack-doctor
 
 Discover the installation architecture, delegate to focused evidence contracts, and report a GREEN, YELLOW, or RED stack verdict without repairs.
@@ -67,4 +71,4 @@ Validate, normalize, import, and compare X Analytics CSV exports through a repea
 
 Draft, rewrite, and repurpose short-form X content with source fidelity, format routing, and claim verification.
 
-Do not add a skill without the admission evidence required by the root README.
+Do not add a stable skill without the admission evidence required by the root README. Experimental skills must be clearly marked and carry explicit limitations, behavior tests, and a path to stable promotion.
