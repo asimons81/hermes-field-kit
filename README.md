@@ -12,11 +12,11 @@
 
 **Tags:** `hermes-agent` · `hermes-ai` · `ai-agents` · `agent-skills` · `developer-tools` · `automation` · `open-source` · `tonysimons_`
 
-Hermes Field Kit is a curated collection of reusable workflows that have earned their place through real, repeated use. It is intentionally not a bulk skill dump.
+Hermes Field Kit is a curated collection of reusable workflows that have earned their place through real, repeated use. It is intentionally not a bulk skill dump. Experimental entries are explicitly marked while they accumulate the field evidence required for stable promotion.
 
 ## Current status
 
-**Version 1.0.1 is the current corrective release with thirteen field-tested skills.**
+**Version 1.0.1 is the current tagged corrective release. The working catalog contains thirteen stable skills plus experimental `hermes-skill-consolidate` 0.1.0.**
 
 The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
 
@@ -24,17 +24,17 @@ The catalog includes private-by-default analytics, source-locked writing, and an
 inspect -> diagnose -> recover -> migrate -> verify
 ```
 
-The repository applies the same admission rule to every future skill.
+The repository applies the same admission rule to every future stable skill.
 
 ## The admission rule
 
-A skill belongs here only when all three statements are true:
+A skill belongs in the stable catalog only when all three statements are true:
 
 1. It solves a real task.
 2. It has been used in an actual workflow.
 3. Another person can reproduce the intended behavior from the repository.
 
-Generated filler, speculative prompts, thin wrappers, and untested skill bundles do not qualify.
+Generated filler, speculative prompts, thin wrappers, and untested skill bundles do not qualify. Experimental skills must have a concrete use case, explicit limitations, behavior tests, and a defined path to stable promotion.
 
 ## What every published skill must provide
 
@@ -72,6 +72,7 @@ The `skills/` directory contains tap-discoverable published skills and its expla
 - [`hermes-gateway-doctor`](skills/hermes-gateway-doctor/README.md): Diagnose gateway failures from real process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
 - [`hermes-profile-audit`](skills/hermes-profile-audit/README.md): Compare a profile’s declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
 - [`hermes-skill-audit`](skills/hermes-skill-audit/README.md): Audit global and profile-local skills for dependencies, frontmatter, usage integrity, cron references, duplicates, and upstream drift.
+- [`hermes-skill-consolidate`](skills/hermes-skill-consolidate/README.md) **experimental**: Safely consolidate or restructure overlapping skills with read-only planning, scope-bound approval, rollback snapshots, staged writes, and post-change verification.
 - [`hermes-stack-doctor`](skills/hermes-stack-doctor/README.md): Discover the installation architecture, delegate to focused evidence contracts, and report a GREEN, YELLOW, or RED stack verdict without repairs.
 - [`hermes-token-audit`](skills/hermes-token-audit/README.md): Audit token usage and cost with live schema discovery, aggregate-first privacy, and clear separation between estimates and provider billing.
 - [`hermes-update-doctor`](skills/hermes-update-doctor/README.md): Investigate update failures by separating remote drift, repository divergence, process locks, stale caches, partial installs, and runtime mismatches.
