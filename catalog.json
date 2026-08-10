@@ -2,6 +2,17 @@
   "schema_version": "1.0",
   "skills": [
     {
+      "name": "dont-lie-to-me",
+      "category": "productivity",
+      "path": "skills/dont-lie-to-me",
+      "version": "0.1.0",
+      "description": "Use when the user explicitly wants evidence-disciplined answers that separate observed facts, sourced claims, user reports, inference, unknowns, and contradictions before making strong factual or completion claims.",
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "status": "experimental"
+    },
+    {
       "name": "hermes-environment-migration",
       "category": "operations",
       "path": "skills/hermes-environment-migration",
