@@ -15,6 +15,10 @@ Do not insert category folders. Categories belong in `metadata.hermes.category` 
 
 ## Available
 
+### dont-lie-to-me
+
+**Experimental.** Apply a cross-cutting evidence discipline that separates observation, sourced claims, user reports, inference, unknowns, and contradictions before Hermes makes strong factual or completion claims.
+
 ### hermes-environment-migration
 
 Safely migrate Hermes environments with staged archives, integrity manifests, secret separation, selective imports, verification, and rollback.
