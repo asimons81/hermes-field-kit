@@ -6,7 +6,14 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ## [Unreleased]
 
-No unreleased changes.
+### Added
+
+- Experimental `hermes-skill-consolidate` 0.1.0, a safety-gated write-side companion to `hermes-skill-audit` for consolidating, restructuring, deprecating, splitting, or extracting shared references from installed skills.
+- Relationship classification covering confirmed duplicates, likely redundancy, partial overlap, complementary skills, parent/orchestrator designs, shared-reference candidates, intentionally separate safety domains, and insufficient evidence.
+- Separate read-only planning and scope-bound mutation approval phases, with approval invalidation when the material plan changes.
+- Standard-library rollback snapshot helper with SHA-256 manifest verification, path containment checks, symlink rejection, tamper detection, and no live-mutation command.
+- Staged cutover, safety-monotonic merge rules, hostile-content handling, and post-change verification contracts.
+- Community proposal attribution and design lineage for issue #17.
 
 ## [1.0.1] - 2026-07-24
 

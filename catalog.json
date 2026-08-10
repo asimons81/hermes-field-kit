@@ -54,6 +54,19 @@
       "status": "stable"
     },
     {
+      "name": "hermes-skill-consolidate",
+      "category": "software-development",
+      "path": "skills/hermes-skill-consolidate",
+      "version": "0.1.0",
+      "description": "Use when installed Hermes skills must be safely consolidated, restructured, deprecated, split, or given shared references after overlap has been established, with a read-only plan, explicit approval, rollback snapshot, staged writes, and post-change verification.",
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "status": "experimental"
+    },
+    {
       "name": "hermes-stack-doctor",
       "category": "operations",
       "path": "skills/hermes-stack-doctor",
