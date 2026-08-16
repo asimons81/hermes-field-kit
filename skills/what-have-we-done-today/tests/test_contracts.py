@@ -37,8 +37,9 @@ class WhatHaveWeDoneTodayContractTests(unittest.TestCase):
         self.assertIn("never overwrite", SKILL.lower())
 
     def test_manual_trigger_no_cron_contract_published(self):
-        self.assertIn("intentionally NOT a cron job", SKILL)
-        self.assertIn("Don't install this as a cron", SKILL)
+        flat = " ".join(SKILL.split())
+        self.assertIn("intentionally NOT a cron job", flat)
+        self.assertIn("Don't install this as a cron", flat)
 
     def test_scanner_implementation_is_read_only(self):
         self.assertIn("mode=ro", SCRIPT)

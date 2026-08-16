@@ -44,7 +44,7 @@ Counter-triggers — do NOT load this skill when:
 ## Workflow
 
 1. **Scan all three surfaces.** Invoke through the `terminal` tool:
-   `python3 ~/.hermes/skills/productivity/daily-session-recap/scripts/today_sessions.py --excerpts`
+   `python3 ~/.hermes/skills/productivity/what-have-we-done-today/scripts/today_sessions.py --excerpts`
    Output: sessions grouped by profile (time, source, title, counts,
    goal/outcome hints), then kanban per board (done today, ▶ running, ✋
    blocked, todo/ready counts), then cron (ran today with ❌ on errors, ▶
