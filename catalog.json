@@ -2,6 +2,17 @@
   "schema_version": "1.0",
   "skills": [
     {
+      "name": "what-have-we-done-today",
+      "category": "productivity",
+      "path": "skills/what-have-we-done-today",
+      "version": "0.2.0",
+      "description": "Use when a recap of today's sessions, cron, and kanban helps.",
+      "platforms": [
+        "platform-agnostic"
+      ],
+      "status": "experimental"
+    },
+    {
       "name": "dont-lie-to-me",
       "category": "productivity",
       "path": "skills/dont-lie-to-me",

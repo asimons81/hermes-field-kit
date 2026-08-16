@@ -68,6 +68,7 @@ The `skills/` directory contains tap-discoverable published skills and its expla
 
 ## Published skills
 
+- [`what-have-we-done-today`](skills/what-have-we-done-today/README.md) **experimental**: Scan today's sessions, kanban boards, and cron runs across all profile stores and write an append-friendly daily markdown recap.
 - [`dont-lie-to-me`](skills/dont-lie-to-me/README.md) **experimental**: Apply a cross-cutting evidence discipline that separates observation, sourced claims, user reports, inference, unknowns, and contradictions before Hermes makes strong factual or completion claims.
 - [`hermes-environment-migration`](skills/hermes-environment-migration/README.md): Safely migrate Hermes environments with staged archives, integrity manifests, secret separation, selective imports, verification, and rollback.
 - [`hermes-gateway-doctor`](skills/hermes-gateway-doctor/README.md): Diagnose gateway failures from real process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
