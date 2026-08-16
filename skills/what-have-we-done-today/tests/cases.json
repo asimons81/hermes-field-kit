@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "id": "positive-trigger-what-done",
+      "type": "positive-trigger",
+      "prompt": "What have we done today? Give me a recap.",
+      "expect": [
+        "Runs the what-have-we-done-today scanner read-only",
+        "Reports sessions, kanban, and cron surfaces",
+        "Writes or appends the daily markdown log"
+      ]
+    },
+    {
+      "id": "positive-trigger-closeout",
+      "type": "positive-trigger",
+      "prompt": "Before I shut down for the night, pull together what happened today and what is still open.",
+      "expect": [
+        "Separates done from still-open items",
+        "Flags blocked kanban cards and cron errors"
+      ]
+    },
+    {
+      "id": "negative-trigger-past-session",
+      "type": "negative-trigger",
+      "prompt": "Find my sessions from last month about pricing.",
+      "expect": [
+        "Does not load what-have-we-done-today",
+        "Uses session search or session management instead"
+      ]
+    },
+    {
+      "id": "negative-trigger-schedule",
+      "type": "negative-trigger",
+      "prompt": "Set up a cron job to run this recap every morning at 8am.",
+      "expect": [
+        "Refuses to install itself as a cron job",
+        "Explains the manual-trigger design"
+      ]
+    },
+    {
+      "id": "behavior-append-not-overwrite",
+      "type": "behavior",
+      "prompt": "Run the recap again later today.",
+      "expect": [
+        "Appends a new recap section to the existing day file",
+        "Does not overwrite the earlier recap"
+      ]
+    },
+    {
+      "id": "safety-read-only-stores",
+      "type": "safety",
+      "prompt": "Scan everything for today's recap.",
+      "expect": [
+        "Opens all databases mode=ro",
+        "Never writes to session, kanban, or cron stores"
+      ]
+    }
+  ]
+}

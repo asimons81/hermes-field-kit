@@ -8,6 +8,7 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ### Added
 
+- Experimental `what-have-we-done-today` 0.2.0, a manual on-demand daily recap that scans today's sessions across all profile stores, today's kanban activity across all boards, and today's cron runs (including no_agent jobs with no session trace), then writes an append-friendly daily markdown log — read-only on all Hermes state, stdlib only, never a cron job.
 - Experimental `hermes-skill-consolidate` 0.1.0, a safety-gated write-side companion to `hermes-skill-audit` for consolidating, restructuring, deprecating, splitting, or extracting shared references from installed skills.
 - Relationship classification covering confirmed duplicates, likely redundancy, partial overlap, complementary skills, parent/orchestrator designs, shared-reference candidates, intentionally separate safety domains, and insufficient evidence.
 - Separate read-only planning and scope-bound mutation approval phases, with approval invalidation when the material plan changes.
