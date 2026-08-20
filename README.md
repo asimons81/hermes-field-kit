@@ -16,7 +16,7 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Version 1.0.1 is the current tagged corrective release. The working catalog contains thirteen stable skills plus experimental `dont-lie-to-me` 0.1.0 and `hermes-skill-consolidate` 0.1.0.**
+**Version 1.0.1 is the current tagged corrective release. The working catalog contains thirteen stable skills plus three experimental skills: `what-have-we-done-today` 0.2.0, `dont-lie-to-me` 0.1.0, and `hermes-skill-consolidate` 0.1.0.**
 
 The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
 
