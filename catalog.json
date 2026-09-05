@@ -7,9 +7,7 @@
       "path": "skills/what-have-we-done-today",
       "version": "0.2.0",
       "description": "Use when a recap of today's sessions, cron, and kanban helps.",
-      "platforms": [
-        "platform-agnostic"
-      ],
+      "platforms": ["platform-agnostic"],
       "status": "experimental"
     },
     {
@@ -18,9 +16,16 @@
       "path": "skills/dont-lie-to-me",
       "version": "0.1.0",
       "description": "Use when the user explicitly wants evidence-disciplined answers that separate observed facts, sourced claims, user reports, inference, unknowns, and contradictions before making strong factual or completion claims.",
-      "platforms": [
-        "platform-agnostic"
-      ],
+      "platforms": ["platform-agnostic"],
+      "status": "experimental"
+    },
+    {
+      "name": "hermes-change-review",
+      "category": "software-development",
+      "path": "skills/hermes-change-review",
+      "version": "0.1.0",
+      "description": "Use when a branch, pull request, Kanban task, or implementation must be reviewed separately for intent fidelity, repository quality, and verification evidence before completion or merge is accepted.",
+      "platforms": ["platform-agnostic"],
       "status": "experimental"
     },
     {
@@ -29,11 +34,7 @@
       "path": "skills/hermes-environment-migration",
       "version": "1.0.0",
       "description": "Use when a Hermes environment must be safely migrated between machines with staged exports, integrity manifests, secret separation, selective imports, verification, and rollback.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -42,12 +43,17 @@
       "path": "skills/hermes-gateway-doctor",
       "version": "1.0.0",
       "description": "Use when Hermes messaging gateway failures must be diagnosed across process state, adapters, credential posture, logs, delivery evidence, polling conflicts, and service persistence without automatic repair.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
+    },
+    {
+      "name": "hermes-kanbanize",
+      "category": "productivity",
+      "path": "skills/hermes-kanbanize",
+      "version": "0.1.0",
+      "description": "Use when an existing conversation, plan, specification, or objective must become a Hermes-native Kanban board with verifiable work slices, real blocking edges, a clear execution frontier, and no duplicate scheduler.",
+      "platforms": ["platform-agnostic"],
+      "status": "experimental"
     },
     {
       "name": "hermes-profile-audit",
@@ -55,12 +61,17 @@
       "path": "skills/hermes-profile-audit",
       "version": "1.0.0",
       "description": "Use when a Hermes profile must be audited for role clarity, authority boundaries, configuration fit, skills, memory posture, credential scope, handoffs, and recurring operational failures.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
+    },
+    {
+      "name": "hermes-session-handoff",
+      "category": "productivity",
+      "path": "skills/hermes-session-handoff",
+      "version": "0.1.0",
+      "description": "Use when a Hermes session, profile, machine, or agent must hand ongoing work to a fresh continuation context without losing verified state, decisions, artifacts, blockers, or the exact next action.",
+      "platforms": ["platform-agnostic"],
+      "status": "experimental"
     },
     {
       "name": "hermes-skill-audit",
@@ -68,11 +79,7 @@
       "path": "skills/hermes-skill-audit",
       "version": "1.0.0",
       "description": "Use when installed Hermes skills must be audited for overlap, staleness, broken references, usage-integrity problems, and dead weight without changing the installation.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -81,11 +88,7 @@
       "path": "skills/hermes-skill-consolidate",
       "version": "0.1.0",
       "description": "Use when installed Hermes skills must be safely consolidated, restructured, deprecated, split, or given shared references after overlap has been established, with a read-only plan, explicit approval, rollback snapshot, staged writes, and post-change verification.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "experimental"
     },
     {
@@ -94,11 +97,7 @@
       "path": "skills/hermes-stack-doctor",
       "version": "1.0.0",
       "description": "Use when a top-level, read-only Hermes health audit is needed across installation, updates, gateways, cron, profiles, skills, repositories, credential posture, persistence, and cost signals.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -107,11 +106,7 @@
       "path": "skills/hermes-token-audit",
       "version": "1.0.0",
       "description": "Use when Hermes token usage, cost attribution, runaway sessions, cron consumption, or billing discrepancies must be investigated using privacy-preserving, schema-aware evidence.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -120,11 +115,7 @@
       "path": "skills/hermes-update-doctor",
       "version": "1.0.0",
       "description": "Use when stuck, contradictory, blocked, or incomplete Hermes updates must be diagnosed across Git state, remotes, running processes, caches, and installed versions before recovery.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -133,11 +124,7 @@
       "path": "skills/interview-me",
       "version": "0.2.0",
       "description": "Use when the user says Interview me before you start as a standalone command, explicitly asks to be questioned before work begins, or needs an adaptive, consent-based interview because goals, constraints, preferences, tradeoffs, or success criteria are genuinely unclear.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -146,11 +133,7 @@
       "path": "skills/oss-tool-trust-audit",
       "version": "1.0.0",
       "description": "Use when an open-source developer tool, package, CLI, agent, or MCP server must be evaluated for legitimacy, supply-chain risk, telemetry, dangerous capabilities, claim accuracy, and adoption fit.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -159,11 +142,7 @@
       "path": "skills/pre-build-feature-audit",
       "version": "1.1.0",
       "description": "Use when a proposed open-source feature must be checked across source, history, branches, issues, pull requests, roadmaps, and contributor guidance before implementation begins.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -172,11 +151,7 @@
       "path": "skills/repo-readiness-audit",
       "version": "0.1.0",
       "description": "Use when a user asks whether an identified repository is ready for further development, release work, a new feature, handoff, or a new contributor, requiring a disciplined read-only audit before an evidence-backed verdict.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -185,11 +160,7 @@
       "path": "skills/x-analytics-import",
       "version": "1.0.0",
       "description": "Use when X Analytics CSV exports must be inspected, validated, normalized, imported, or compared through a repeatable private-by-default workflow.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     },
     {
@@ -198,11 +169,7 @@
       "path": "skills/x-post-writer",
       "version": "1.0.0",
       "description": "Use when drafting, rewriting, or repurposing short-form X content, including single posts, quote posts, replies, threads, launches, and personal stories, with source fidelity and claim verification built in.",
-      "platforms": [
-        "linux",
-        "macos",
-        "windows"
-      ],
+      "platforms": ["linux", "macos", "windows"],
       "status": "stable"
     }
   ]
