@@ -4,7 +4,7 @@ Release date target: September 5, 2026
 
 ## Status
 
-Release candidate. Static repository validation and fresh-profile Hermes runtime validation must complete before publication.
+Release candidate. Pull-request static validation is green; fresh-profile Hermes runtime validation remains required before merge and publication.
 
 ## Headline
 
@@ -45,9 +45,24 @@ The design guidance and authoring scaffold now sharpen:
 - skill descriptions as precise routing pointers
 - progressive disclosure for branch-specific or bulky reference material
 - checkable completion criteria at each workflow phase
+- executable Python contract tests for every published skill
 - single-source-of-truth behavior rules
 - environment/tool discovery instead of copying volatile facts into skills
 - positive process instructions paired with explicit hard safety boundaries
+
+## Validator hardening found during this release
+
+The first 1.1.0 PR run exposed a Python-version discrepancy: the three new skills had JSON behavior cases but no executable `unittest` files. Python 3.13 correctly caused the hardening step to fail with zero discovered tests, while Python 3.11 allowed the old validator logic to treat `Ran 0 tests` as a pass.
+
+The release branch now:
+
+- adds deterministic executable contract tests for all three new skills
+- requires every published skill to discover at least one executable contract test
+- treats zero discovered tests as a release failure regardless of interpreter behavior
+- includes an executable contract-test scaffold in the skill template
+- runs `git diff --check` in pull-request CI
+
+The corrected PR matrix passed Python 3.11 and 3.13 on both Ubuntu and Windows before this final CI hardening commit.
 
 ## Design lineage
 
@@ -55,15 +70,18 @@ This release was prompted by a review of Matt Pocock's MIT-licensed `mattpocock/
 
 ## Validation required before publication
 
-The release gate requires:
+Completed on the release branch:
 
 - repository validator contract tests
 - repository validation
 - release-wave hardening validation
-- clean diff checks
 - catalog/frontmatter agreement
-- hostile-content and privacy review
+- hostile-content and privacy-oriented contract coverage
 - pull-request CI on Python 3.11 and 3.13 across Ubuntu and Windows
+
+Still required:
+
+- final PR CI including the new `git diff --check` gate
 - fresh disposable Hermes profile validation using the repository-qualified install flow
 - post-merge validation against the exact merged commit
 - annotated SemVer tag and verified non-draft GitHub release

@@ -24,7 +24,12 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 - The working catalog now contains thirteen stable skills and six experimental skills.
 - Field Kit's operating loop now explicitly covers planning, execution verification, and continuation handoff in addition to inspection, diagnosis, recovery, and migration.
-- The authoring template now emphasizes observable completion criteria and optional progressive references without turning the template into an always-loaded wall of prose.
+- The authoring template now emphasizes observable completion criteria, executable contract tests, and optional progressive references without turning the template into an always-loaded wall of prose.
+- Pull-request CI now runs `git diff --check` as an explicit release-quality gate.
+
+### Fixed
+
+- Hardened release-wave validation so a published skill with zero executable contract tests fails consistently on every supported Python version. Python 3.13 exposed that `unittest` can fail an empty discovery while Python 3.11 had previously allowed the hardening script to count zero tests as a pass.
 
 ### Design lineage
 
