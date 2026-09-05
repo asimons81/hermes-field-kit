@@ -6,15 +6,29 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-05
+
 ### Added
 
-- Experimental `what-have-we-done-today` 0.2.0, a manual on-demand daily recap that scans today's sessions across all profile stores, today's kanban activity across all boards, and today's cron runs (including no_agent jobs with no session trace), then writes an append-friendly daily markdown log — read-only on all Hermes state, stdlib only, never a cron job.
+- Experimental `hermes-session-handoff` 0.1.0 for evidence-aware continuation packets across sessions, profiles, machines, and compatible agents, including exact fresh-session prompts and explicit re-verification requirements.
+- Experimental `hermes-kanbanize` 0.1.0 for translating settled conversations, plans, and specs into Hermes-native Kanban graphs with vertical work slices, acceptance criteria, blocking edges, verified frontiers, and separate execution authorization.
+- Experimental `hermes-change-review` 0.1.0 for separate Intent, Repository, and Verification review axes before implementation work is accepted or merged.
+- Experimental `what-have-we-done-today` 0.2.0, a manual on-demand daily recap that scans today's sessions across all profile stores, today's kanban activity across all boards, and today's cron runs (including no_agent jobs with no session trace), then writes an append-friendly daily markdown log.
+- Experimental `dont-lie-to-me` 0.1.0 with evidence states and proof obligations for strong factual and completion claims.
 - Experimental `hermes-skill-consolidate` 0.1.0, a safety-gated write-side companion to `hermes-skill-audit` for consolidating, restructuring, deprecating, splitting, or extracting shared references from installed skills.
 - Relationship classification covering confirmed duplicates, likely redundancy, partial overlap, complementary skills, parent/orchestrator designs, shared-reference candidates, intentionally separate safety domains, and insufficient evidence.
-- Separate read-only planning and scope-bound mutation approval phases, with approval invalidation when the material plan changes.
-- Standard-library rollback snapshot helper with SHA-256 manifest verification, path containment checks, symlink rejection, tamper detection, and no live-mutation command.
-- Staged cutover, safety-monotonic merge rules, hostile-content handling, and post-change verification contracts.
-- Community proposal attribution and design lineage for issue #17.
+- Standard-library rollback snapshot support for skill consolidation with SHA-256 manifest verification, path containment checks, symlink rejection, and tamper detection.
+- Skill authoring guidance for routing-pointer precision, single-source-of-truth discipline, environment-backed facts, progressive disclosure, and checkable completion criteria.
+
+### Changed
+
+- The working catalog now contains thirteen stable skills and six experimental skills.
+- Field Kit's operating loop now explicitly covers planning, execution verification, and continuation handoff in addition to inspection, diagnosis, recovery, and migration.
+- The authoring template now emphasizes observable completion criteria and optional progressive references without turning the template into an always-loaded wall of prose.
+
+### Design lineage
+
+- The handoff, spec-to-ticket, and multi-axis review concepts in this wave were inspired in part by Matt Pocock's MIT-licensed `skills` repository. The Field Kit implementations were independently written around Hermes-native capabilities, Field Kit safety boundaries, behavior tests, hostile-content handling, and evidence discipline.
 
 ## [1.0.1] - 2026-07-24
 
@@ -60,7 +74,7 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 - `x-post-writer` 1.0.0: single-post default, quote posts, replies, explicit threads, source locking, unsupported-claim blocking, and configurable voice guidance.
 - `hermes-environment-migration` 1.0.0: Safely migrate Hermes environments with staged archives, integrity manifests, secret separation, selective imports, verification, and rollback.
 - `hermes-gateway-doctor` 1.0.0: Diagnose gateway failures from real process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
-- `hermes-profile-audit` 1.0.0: Compare a profile’s declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
+- `hermes-profile-audit` 1.0.0: Compare a profile's declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
 - `hermes-skill-audit` 1.0.0: Audit global and profile-local skills for dependencies, frontmatter, usage integrity, cron references, duplicates, and upstream drift.
 - `hermes-stack-doctor` 1.0.0: Discover the installation architecture, delegate to focused evidence contracts, and report a GREEN, YELLOW, or RED stack verdict without repairs.
 - `hermes-token-audit` 1.0.0: Audit token usage and cost with live schema discovery, aggregate-first privacy, and clear separation between estimates and provider billing.
