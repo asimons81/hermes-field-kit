@@ -6,6 +6,8 @@ The format is based on Keep a Changelog, and the project uses Semantic Versionin
 
 ## [Unreleased]
 
+- Experimental `omarchy-theme-maker` 0.1.0, an Omarchy desktop theming skill that derives a contrast-checked `colors.toml` palette from any image (median-cut dominant colors, auto dark/light with weight-sum normalization, stock-calibrated ramps, WCAG contrast floors), installs the image as the theme background, and applies it with `omarchy theme set` — writes confined to `~/.config/omarchy/themes/<slug>/`.
+
 ## [1.1.0] - 2026-09-05
 
 ### Added
