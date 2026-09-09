@@ -4,7 +4,7 @@ Release date target: September 5, 2026
 
 ## Status
 
-Release candidate. Pull-request static validation is green; fresh-profile Hermes runtime validation remains required before merge and publication.
+Release candidate. Pull-request static validation is green; fresh-profile Hermes runtime validation was observed and recorded below (pinned raw-URL lifecycle, Hermes v0.21.1). Post-merge steps — validation against the exact merged commit, annotated tag, and the published release — remain.
 
 ## Headline
 
@@ -87,3 +87,18 @@ Still required:
 - annotated SemVer tag and verified non-draft GitHub release
 
 Hermes Agent v0.21.0 (v2026.8.31) is the current upstream release at release-candidate preparation time. Compatibility will not be claimed until the fresh-profile validation step is actually observed.
+
+## Fresh-profile runtime validation (observed)
+
+Validated on 2026-09-09 with Hermes Agent v0.21.1 (2026.9.7, install method git, local revision c076d653 with one carried commit) on Arch Linux, against pre-merge release-branch head daa74b756cd318854a8840b7a365c0eb98c5ec64.
+
+Pinned raw-URL review install (`https://raw.githubusercontent.com/asimons81/hermes-field-kit/daa74b7.../skills/hermes-session-handoff/SKILL.md`) into a fresh disposable profile:
+
+- Fetch, quarantine, and security scan succeeded. Verdict SAFE; decision ALLOWED (community source, safe verdict); scanner skills-guard-v2, scan provenance fresh, rules none.
+- Installed files: SKILL.md only. A pinned raw-URL install intentionally carries the single SKILL.md, not the full bundle (tests, examples, references). Consumers who need the complete skill directory should clone or copy per docs/installation.md.
+- `hermes skills check` reported `up_to_date` against the pinned revision — the v0.19.0 `update_available` false-positive quirk documented in docs/installation.md did not reproduce on v0.21.1.
+- `hermes skills uninstall` removed the skill cleanly and a subsequent `skills list` confirmed absence.
+
+The repository-qualified identifier path (`asimons81/hermes-field-kit/hermes-session-handoff`) was also attempted on v0.21.1: the fetch stalled after `Fetching:` with no install, quarantine entry, or error surfaced. 1.1.0 therefore claims the pinned raw-URL lifecycle only; registry-path compatibility remains untested on this Hermes version and keeps the existing caveat in docs/installation.md.
+
+Post-merge steps still required: validation against the exact merged commit, annotated SemVer tag, and a non-draft GitHub release published from this file.
