@@ -80,6 +80,7 @@ docs/                      Installation, design, testing, and release policy
 - [`hermes-token-audit`](skills/hermes-token-audit/README.md): Audit token usage and cost with live schema discovery, aggregate-first privacy, and clear separation between estimates and provider billing.
 - [`hermes-update-doctor`](skills/hermes-update-doctor/README.md): Investigate update failures by separating remote drift, repository divergence, process locks, stale caches, partial installs, and runtime mismatches.
 - [`interview-me`](skills/interview-me/README.md): Ask one high-value question at a time, inspect available sources before questioning, and stop when more questions would not change the next action.
+- [`omarchy-theme-maker`](skills/omarchy-theme-maker/README.md): Derive a contrast-checked Omarchy theme palette from any image, install it as the theme background, and apply it with `omarchy theme set`.
 - [`oss-tool-trust-audit`](skills/oss-tool-trust-audit/README.md): Read source and release machinery, treat popularity as context rather than proof, and separate technical legitimacy from adoption fit.
 - [`pre-build-feature-audit`](skills/pre-build-feature-audit/README.md): Run a read-only duplicate check across source, history, branches, issues, pull requests, roadmaps, and contributor guidance.
 - [`repo-readiness-audit`](skills/repo-readiness-audit/README.md): Determine whether a Git repository is ready for development, release, handoff, or contribution using independent evidence from repository and collaboration surfaces.

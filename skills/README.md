@@ -55,6 +55,10 @@ Investigate update failures by separating remote drift, repository divergence, p
 
 Ask one high-value question at a time, inspect available sources before questioning, and stop when more questions would not change the next action.
 
+### omarchy-theme-maker
+
+Derive a contrast-checked Omarchy theme palette from any image, install it as the theme background, and apply it with `omarchy theme set`.
+
 ### oss-tool-trust-audit
 
 Read source and release machinery, treat popularity as context rather than proof, and separate technical legitimacy from adoption fit.
