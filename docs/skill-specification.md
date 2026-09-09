@@ -10,7 +10,8 @@ skills/<name>/
 ├── README.md
 ├── examples/
 ├── tests/
-│   └── cases.json
+│   ├── cases.json
+│   └── test_contracts.py
 ├── references/      # optional
 ├── scripts/         # optional
 ├── templates/       # optional
@@ -70,6 +71,14 @@ At minimum:
 
 `When to Use` includes positive triggers and counter-triggers. Ordered workflow steps end in checkable completion criteria.
 
+## Authoring discipline
+
+- Treat the frontmatter description as a routing pointer. Name the task class precisely and keep duplicate synonyms out.
+- Keep every behavioral rule authoritative in one place. Reference it rather than copying the same meaning into multiple files.
+- Prefer current environment, schema, config, CLI-help, or tool evidence for volatile facts. Document reasons and non-obvious contracts rather than stale caches of discoverable state.
+- Keep universal execution steps and safety boundaries in `SKILL.md`; move branch-specific or bulky reference material behind progressive references.
+- Use observable completion criteria. A phase ends when the agent can prove the boundary was reached, not when it feels finished.
+
 ## Supporting paths
 
 Only these top-level entries are permitted within a published skill:
@@ -97,6 +106,10 @@ Examples are sanitized but realistic. Include one successful use and one boundar
 
 Each skill requires `tests/cases.json` conforming to `schemas/test-cases.schema.json`, including a positive trigger, negative trigger, workflow behavior, and safety boundary when applicable.
 
+Each published skill also requires at least one executable Python `unittest` contract test discoverable under `tests/test*.py`. Contract tests should assert the behavioral and safety promises that matter for that specific skill. A test directory that discovers zero executable tests is a release failure on every supported Python version.
+
+The JSON cases describe realistic routing and behavior expectations; the executable contract tests prevent the published skill text, references, and safety contract from drifting silently.
+
 ## Catalog entry
 
 Every published skill has exactly one entry in `catalog.json`. The entry path is always `skills/<name>`. Its category agrees with `metadata.hermes.category`; name, version, description, and platforms agree with `SKILL.md`.
@@ -112,7 +125,6 @@ Each skill uses Semantic Versioning independently:
 - Patch: correction without intended behavior change
 - Minor: backward-compatible workflow expansion
 - Major: breaking trigger, input, output, or safety-boundary change
-
 
 ## Untrusted content
 

@@ -16,12 +16,12 @@ Hermes Field Kit is a curated collection of reusable workflows that have earned 
 
 ## Current status
 
-**Version 1.0.1 is the current tagged corrective release. The working catalog contains thirteen stable skills plus three experimental skills: `what-have-we-done-today` 0.2.0, `dont-lie-to-me` 0.1.0, and `hermes-skill-consolidate` 0.1.0.**
+**Version 1.0.1 is the current tagged release. The 1.1.0 release branch expands the working catalog to thirteen stable skills plus six experimental skills.**
 
-The catalog includes private-by-default analytics, source-locked writing, and an operational Field Kit organized around:
+The catalog includes private-by-default analytics, source-locked writing, evidence discipline, session continuity, Hermes-native work decomposition, post-build review, and an operational Field Kit organized around:
 
 ```text
-inspect -> diagnose -> recover -> migrate -> verify
+inspect -> diagnose -> plan -> execute -> verify -> hand off
 ```
 
 The repository applies the same admission rule to every future stable skill.
@@ -64,15 +64,16 @@ docs/                      Installation, design, testing, and release policy
 .github/                   Contribution forms, dependency updates, and CI
 ```
 
-The `skills/` directory contains tap-discoverable published skills and its explanatory README.
-
 ## Published skills
 
 - [`what-have-we-done-today`](skills/what-have-we-done-today/README.md) **experimental**: Scan today's sessions, kanban boards, and cron runs across all profile stores and write an append-friendly daily markdown recap.
-- [`dont-lie-to-me`](skills/dont-lie-to-me/README.md) **experimental**: Apply a cross-cutting evidence discipline that separates observation, sourced claims, user reports, inference, unknowns, and contradictions before Hermes makes strong factual or completion claims.
+- [`dont-lie-to-me`](skills/dont-lie-to-me/README.md) **experimental**: Separate observation, sourced claims, user reports, inference, unknowns, and contradictions before strong factual or completion claims.
+- [`hermes-change-review`](skills/hermes-change-review/README.md) **experimental**: Review implementation independently for intent fidelity, repository quality, and actual verification evidence.
 - [`hermes-environment-migration`](skills/hermes-environment-migration/README.md): Safely migrate Hermes environments with staged archives, integrity manifests, secret separation, selective imports, verification, and rollback.
-- [`hermes-gateway-doctor`](skills/hermes-gateway-doctor/README.md): Diagnose gateway failures from real process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
-- [`hermes-profile-audit`](skills/hermes-profile-audit/README.md): Compare a profile’s declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
+- [`hermes-gateway-doctor`](skills/hermes-gateway-doctor/README.md): Diagnose gateway failures from process, adapter, credential-posture, log, delivery, and persistence evidence without automatic repair.
+- [`hermes-kanbanize`](skills/hermes-kanbanize/README.md) **experimental**: Turn settled conversation/spec context into a Hermes-native Kanban graph with acceptance criteria, blocking edges, a verified frontier, and execution gating.
+- [`hermes-profile-audit`](skills/hermes-profile-audit/README.md): Compare a profile's declared responsibilities with its actual tools, skills, persistence, access, and observed behavior without rewriting it.
+- [`hermes-session-handoff`](skills/hermes-session-handoff/README.md) **experimental**: Build a portable continuation packet with verified state, artifacts, blockers, re-verification needs, and an exact fresh-session prompt.
 - [`hermes-skill-audit`](skills/hermes-skill-audit/README.md): Audit global and profile-local skills for dependencies, frontmatter, usage integrity, cron references, duplicates, and upstream drift.
 - [`hermes-skill-consolidate`](skills/hermes-skill-consolidate/README.md) **experimental**: Safely consolidate or restructure overlapping skills with read-only planning, scope-bound approval, rollback snapshots, staged writes, and post-change verification.
 - [`hermes-stack-doctor`](skills/hermes-stack-doctor/README.md): Discover the installation architecture, delegate to focused evidence contracts, and report a GREEN, YELLOW, or RED stack verdict without repairs.
@@ -90,7 +91,9 @@ The `skills/` directory contains tap-discoverable published skills and its expla
 - **Field-tested over fashionable.**
 - **Trust over volume.**
 - **Process predictability over ornamental prose.**
+- **Precise routing pointers over vague skill descriptions.**
 - **Progressive disclosure over giant always-loaded instructions.**
+- **Single sources of truth over copied environment facts.**
 - **Reproducible behavior over promises of guaranteed outcomes.**
 - **Safe defaults over environment-specific shortcuts.**
 - **Tap compatibility over aesthetically tidy but undiscoverable nesting.**
@@ -105,8 +108,6 @@ Install any published skill by its repository-qualified identifier:
 hermes skills inspect asimons81/hermes-field-kit/hermes-stack-doctor
 hermes skills install asimons81/hermes-field-kit/hermes-stack-doctor --yes
 ```
-
-In the Hermes v0.19.0 validation environment, this identifier resolved through the skills.sh registry. Custom tap registration succeeded, but tap-backed search did not return the skill, so tap search is not claimed as supported in this release.
 
 Replace `hermes-stack-doctor` with any name from the published-skills list. Start a new Hermes session after installation because discovery may be cached for the lifetime of an existing session.
 

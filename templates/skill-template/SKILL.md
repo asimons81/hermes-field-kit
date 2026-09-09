@@ -32,11 +32,19 @@ Do not use this skill when:
 
 ## Workflow
 
-1. REPLACE_WITH_AN_ACTION_AND_A_CHECKABLE_COMPLETION_CRITERION.
+### 1. REPLACE_WITH_STEP_NAME
+
+REPLACE_WITH_THE_ACTION. Prefer current environment/tool evidence over copied volatile facts.
+
+Completion criterion: REPLACE_WITH_AN_OBSERVABLE_AND_CHECKABLE_BOUNDARY.
 
 ## Common Pitfalls
 
 1. **REPLACE_WITH_A_FAILURE_MODE.** Explain the correction.
+
+## Progressive References
+
+Add references only when a branch or bulky body of detail does not belong in the always-loaded execution path. Delete this section when no progressive reference is needed.
 
 ## Verification Checklist
 

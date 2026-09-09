@@ -137,6 +137,9 @@ def main() -> int:
             failures.append(f"{name} contract tests failed:\n{output}")
         else:
             count = int(match.group(1))
+            if count < 1:
+                failures.append(f"{name} contract tests failed: discovered zero executable tests")
+                continue
             tests_passed += count
             print(f"PASS: {name}: {count} contract tests" + (" + validator" if validator.is_file() else ""))
 
