@@ -1,10 +1,10 @@
 ---
 name: hermes-session-handoff
 description: Use when a Hermes session, profile, machine, or agent must hand ongoing work to a fresh continuation context without losing verified state, decisions, artifacts, blockers, or the exact next action.
-version: 0.1.0
+version: 0.1.1
 author: Tony Simons
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: productivity

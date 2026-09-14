@@ -1,10 +1,10 @@
 ---
 name: hermes-kanbanize
 description: Use when an existing conversation, plan, specification, or objective must become a Hermes-native Kanban board with verifiable work slices, real blocking edges, a clear execution frontier, and no duplicate scheduler.
-version: 0.1.0
+version: 0.1.1
 author: Tony Simons
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: productivity

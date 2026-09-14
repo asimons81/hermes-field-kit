@@ -19,7 +19,7 @@ description: Use when a repeatable example workflow needs disciplined execution.
 version: 0.1.0
 author: Test Author
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: testing
@@ -100,7 +100,7 @@ class RepositoryFactory:
                         "path": "skills/example-skill",
                         "version": "0.1.0",
                         "description": "Use when a repeatable example workflow needs disciplined execution.",
-                        "platforms": ["platform-agnostic"],
+                        "platforms": ["linux", "macos", "windows"],
                         "status": "experimental",
                     }
                 ]
@@ -159,7 +159,7 @@ class ValidatorTests(unittest.TestCase):
                         "path": "skills/ghost-skill",
                         "version": "0.1.0",
                         "description": "Use when a ghost fixture is needed.",
-                        "platforms": ["platform-agnostic"],
+                        "platforms": ["linux", "macos", "windows"],
                         "status": "experimental",
                     }
                 ]
@@ -184,7 +184,7 @@ class ValidatorTests(unittest.TestCase):
                 "path": "skills/example-skill",
                 "version": "0.1.0",
                 "description": "Use when a repeatable example workflow needs disciplined execution.",
-                "platforms": ["platform-agnostic"],
+                "platforms": ["linux", "macos", "windows"],
                 "status": "experimental",
             }
 
@@ -258,6 +258,22 @@ class ValidatorTests(unittest.TestCase):
             )
             errors = validator.validate_repository(repo.root)
             self.assert_error_contains(errors, "unsupported skill path")
+
+
+    def test_unrecognized_platform_value_is_rejected(self) -> None:
+        temp, repo = self.make_repo()
+        with temp:
+            directory = repo.add_skill()
+            skill = (directory / "SKILL.md").read_text(encoding="utf-8")
+            (directory / "SKILL.md").write_text(
+                skill.replace(
+                    "platforms: [linux, macos, windows]",
+                    "platforms: [platform-agnostic]",
+                ),
+                encoding="utf-8",
+            )
+            errors = validator.validate_repository(repo.root)
+            self.assert_error_contains(errors, "platforms contains invalid values")
 
 
 if __name__ == "__main__":

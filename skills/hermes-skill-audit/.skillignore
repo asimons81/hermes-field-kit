@@ -1,0 +1,6 @@
+# Dev/docs artifacts. Excluded from Hermes' install-time skills_guard scan
+# (SKILL.md is never excludable). Keeps hostile-content test fixtures and
+# relative documentation links from being reported as install-time findings.
+README.md
+examples/
+tests/

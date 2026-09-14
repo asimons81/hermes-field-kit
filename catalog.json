@@ -5,10 +5,12 @@
       "name": "what-have-we-done-today",
       "category": "productivity",
       "path": "skills/what-have-we-done-today",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Use when a recap of today's sessions, cron, and kanban helps.",
       "platforms": [
-        "platform-agnostic"
+        "linux",
+        "macos",
+        "windows"
       ],
       "status": "experimental"
     },
@@ -16,10 +18,12 @@
       "name": "dont-lie-to-me",
       "category": "productivity",
       "path": "skills/dont-lie-to-me",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Use when the user explicitly wants evidence-disciplined answers that separate observed facts, sourced claims, user reports, inference, unknowns, and contradictions before making strong factual or completion claims.",
       "platforms": [
-        "platform-agnostic"
+        "linux",
+        "macos",
+        "windows"
       ],
       "status": "experimental"
     },
@@ -27,10 +31,12 @@
       "name": "hermes-change-review",
       "category": "software-development",
       "path": "skills/hermes-change-review",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Use when a branch, pull request, Kanban task, or implementation must be reviewed separately for intent fidelity, repository quality, and verification evidence before completion or merge is accepted.",
       "platforms": [
-        "platform-agnostic"
+        "linux",
+        "macos",
+        "windows"
       ],
       "status": "experimental"
     },
@@ -64,10 +70,12 @@
       "name": "hermes-kanbanize",
       "category": "productivity",
       "path": "skills/hermes-kanbanize",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Use when an existing conversation, plan, specification, or objective must become a Hermes-native Kanban board with verifiable work slices, real blocking edges, a clear execution frontier, and no duplicate scheduler.",
       "platforms": [
-        "platform-agnostic"
+        "linux",
+        "macos",
+        "windows"
       ],
       "status": "experimental"
     },
@@ -88,10 +96,12 @@
       "name": "hermes-session-handoff",
       "category": "productivity",
       "path": "skills/hermes-session-handoff",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Use when a Hermes session, profile, machine, or agent must hand ongoing work to a fresh continuation context without losing verified state, decisions, artifacts, blockers, or the exact next action.",
       "platforms": [
-        "platform-agnostic"
+        "linux",
+        "macos",
+        "windows"
       ],
       "status": "experimental"
     },
