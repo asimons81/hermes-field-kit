@@ -15,8 +15,9 @@ SEMVER = re.compile(
     r"^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"
     r"(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$"
 )
-ALLOWED_PLATFORMS = {"linux", "macos", "windows", "platform-agnostic"}
+ALLOWED_PLATFORMS = {"linux", "macos", "windows"}
 ALLOWED_SKILL_ENTRIES = {
+    ".skillignore",
     "SKILL.md",
     "README.md",
     "examples",

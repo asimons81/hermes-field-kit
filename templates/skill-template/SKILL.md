@@ -4,7 +4,7 @@ description: Use when REPLACE_WITH_A_PRECISE_TRIGGER. REPLACE_WITH_THE_BEHAVIORA
 version: 0.1.0
 author: REPLACE_WITH_AUTHOR
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: replace-with-category

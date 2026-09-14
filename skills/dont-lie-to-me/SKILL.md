@@ -1,10 +1,10 @@
 ---
 name: dont-lie-to-me
 description: Use when the user explicitly wants evidence-disciplined answers that separate observed facts, sourced claims, user reports, inference, unknowns, and contradictions before making strong factual or completion claims.
-version: 0.1.0
+version: 0.1.1
 author: Tony Simons
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: productivity

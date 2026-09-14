@@ -49,7 +49,7 @@ Repository requirements:
 - `version`: valid Semantic Versioning
 - `author`: nonempty attribution
 - `license`: `Apache-2.0` unless an approved exception is documented
-- `platforms`: one or more of `linux`, `macos`, `windows`, or `platform-agnostic`
+- `platforms`: one or more of `linux`, `macos`, `windows` — the set Hermes accepts. Any other value (including `platform-agnostic`) fails Hermes' platform gate, and the skill then never loads while still appearing installed.
 - `metadata.hermes.category`: lowercase kebab-case category used for catalog organization
 - `metadata.hermes.tags`: focused discovery tags
 - `metadata.hermes.related_skills`: repository-resolvable names unless explicitly documented
@@ -85,6 +85,7 @@ Only these top-level entries are permitted within a published skill:
 
 - `SKILL.md`
 - `README.md`
+- `.skillignore`
 - `examples/`
 - `tests/`
 - `references/`
@@ -93,6 +94,13 @@ Only these top-level entries are permitted within a published skill:
 - `assets/`
 
 Symlinks are not allowed. This keeps tap installs self-contained and reviewable.
+
+`.skillignore` is a gitignore-style exclude file read by Hermes' install-time skill scan. It removes
+dev/docs artifacts from that scan in both passes; `SKILL.md` can never be excluded, so the published
+skill contract is always scanned. Use it when a legitimate repository artifact would otherwise be
+reported as an install-time finding — for example hostile-content test fixtures under `tests/`, or
+relative documentation links in `README.md` that the scan's `path_traversal` rule reads as filesystem
+traversal. Without it, such findings can block `hermes skills install` entirely.
 
 ## Skill README
 

@@ -1,10 +1,10 @@
 ---
 name: hermes-change-review
 description: Use when a branch, pull request, Kanban task, or implementation must be reviewed separately for intent fidelity, repository quality, and verification evidence before completion or merge is accepted.
-version: 0.1.0
+version: 0.1.1
 author: Tony Simons
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: software-development

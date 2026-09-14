@@ -1,10 +1,10 @@
 ---
 name: what-have-we-done-today
 description: Use when a recap of today's sessions, cron, and kanban helps.
-version: 0.2.0
+version: 0.2.1
 author: Tony Simons
 license: Apache-2.0
-platforms: [platform-agnostic]
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     category: productivity
